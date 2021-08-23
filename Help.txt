@@ -1,0 +1,8 @@
+to start spotify:
+
+instal:
+
+ npm i axios
+ npm i react-toastify
+
+npm start

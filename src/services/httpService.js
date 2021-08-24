@@ -1,27 +1,33 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-axios.defaults.headers.post["Content-Type"] = "application/json";
+import hash from "./setToken/hash";
 
-axios.interceptors.response.use(null, error => {
-    const expectedErrors =
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status < 500;
-    if (!expectedErrors) {
-        console.log(error);
-        toast.error("مشکلی از سمت سرور رخ داده است.", {
-            position: "top-right",
-            closeOnClick: true
-        });
-    }
+axios.defaults.headers.get["Authorization"] = `Bearer ${hash.access_token}`;
 
-    return Promise.reject(error);
+// ['Accept'] = "application/json"["Content-Type"]="Content-Type"
+
+axios.interceptors.response.use(null, (error) => {
+  const expectedErrors =
+    error.response &&
+    error.response.status >= 400 &&
+    error.response.status < 500;
+  if (!expectedErrors) {
+    console.log(error);
+    toast.error("Server error", {
+      position: "top-right",
+      closeOnClick: true,
+    });
+  }
+
+  return Promise.reject(error);
 });
 
-export default {
-    get: axios.get,
-    post: axios.post,
-    put: axios.put,
-    delete: axios.delete
+const axiosRequest = {
+  get: axios.get,
+  post: axios.post,
+  put: axios.put,
+  delete: axios.delete,
 };
+
+export default axiosRequest;

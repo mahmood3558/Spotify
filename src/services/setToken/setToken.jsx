@@ -1,5 +1,4 @@
 import { authEndpoint, clientId, redirectUri, scopes } from "../config.json";
-import hash from "./hash";
 
 const setToken = () => {
   return (
@@ -12,7 +11,7 @@ const setToken = () => {
       >
         Login to Spotifyyyyyyyyyyyyyyyyyyy
       </a>
-      <p>{hash.access_token}</p>
+      <p></p>
     </div>
   );
 };

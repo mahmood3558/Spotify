@@ -1,3 +1,12 @@
 {
-    "toplearnapi": "https://api.spotify.com"
+  "spotify": "https://api.spotify.com",
+
+  "authEndpoint": "https://accounts.spotify.com/authorize",
+  "clientId": "88cc41d9bfe74ba4bd084451488e1cd4",
+  "redirectUri": "http://localhost:3000/redirect",
+  "scopes": [
+    "user-top-read",
+    "user-read-currently-playing",
+    "user-read-playback-state"
+  ]
 }

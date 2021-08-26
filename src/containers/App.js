@@ -1,9 +1,16 @@
 // import React, { useEffect } from "react";
 
-// import { user } from "../services/userService";
-import SetToken from "../services/setToken/setToken";
+import Home from "../components/main/home/home.jsx";
+import Navbar from "../components/navbar/navbar";
 
-import UserPreview from "../components/navbar/userPreview.jsx";
+// import Player from "../components/player/player";
+
+// import { user } from "../services/userService";
+
+// import SetToken from "../services/setToken/setToken";
+// import UserPreview from "../components/navbar/userPreview.jsx";
+
+// import Player from "../components";
 
 function App() {
   // useEffect(() => {
@@ -57,13 +64,18 @@ function App() {
   // };
   /////////////////////////////////////
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Spotify</p>
-        <br></br>
-        <SetToken></SetToken>
-        <UserPreview></UserPreview>
-      </header>
+    <div>
+      <div className="row">
+        <div className="col-3">
+          <Navbar className="col-lg-4 col-md-3 col-sm-6 col-xs-12 pull-right"></Navbar>
+        </div>
+        <div className="col-9">
+          <Home className="ol-lg-8 col-md-9 col-sm-6 col-xs-12 pull-left"></Home>
+        </div>
+      </div>
+      {/* <Player></Player> */}
+      {/* <SetToken></SetToken>
+      <UserPreview></UserPreview> */}
     </div>
   );
 }

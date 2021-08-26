@@ -1,5 +1,4 @@
 import axios from "axios";
-import { toast } from "react-toastify";
 
 import hash from "./setToken/hash";
 
@@ -14,10 +13,6 @@ axios.interceptors.response.use(null, (error) => {
     error.response.status < 500;
   if (!expectedErrors) {
     console.log(error);
-    toast.error("Server error", {
-      position: "top-right",
-      closeOnClick: true,
-    });
   }
 
   return Promise.reject(error);

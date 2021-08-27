@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import User from "./userPreview";
 
 const index = () => {
@@ -15,44 +17,68 @@ const index = () => {
         <User></User>
 
         <ul className="categories list-unstyled sidebar-header">
-          <li className="">
+          <li>
             <i className="fa fa-home"></i>
-            <a href="#" className="navbarhover">
+            <NavLink
+              to="/home"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
               Home
-            </a>
+            </NavLink>
           </li>
           <li className="">
             <i className="fa fa-search"></i>
-            <a href="#" className="navbarhover">
+            <NavLink
+              to="/search"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
               Search
-            </a>
+            </NavLink>
           </li>
           <li className="">
             <i className="fa fa-align-justify"></i>
-            <a href="#" className="navbarhover">
+            <NavLink
+              to="/library"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
               Library
-            </a>
+            </NavLink>
           </li>
         </ul>
 
         <ul className="categories list-unstyled">
           <li className="">
             <i className="fa fa-heart"></i>
-            <a href="#" className="navbarhover">
+            <NavLink
+              to="/likedSonge"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
               Liked Songs
-            </a>
+            </NavLink>
           </li>
           <li className="">
             <i className="fa fa-plus "></i>
-            <a href="#" className="navbarhover">
+            <NavLink
+              to="/createPlaylist"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
               Create Playlist
-            </a>
+            </NavLink>
           </li>
           <li className="">
             <i className="fa fa-music  "></i>
-            <a href="#" className="navbarhover">
+            <NavLink
+              to="/playList"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
               play List
-            </a>
+            </NavLink>
           </li>
         </ul>
       </aside>

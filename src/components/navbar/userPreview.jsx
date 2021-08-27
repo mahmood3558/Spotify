@@ -38,7 +38,7 @@ const UserPreview = () => {
 
       <div className="ms-2">
         <h5 className="fs-6 mb-0">
-          <a className="text-decoration-none" href="#">
+          <a className="text-decoration-none" href="/">
             {getUser.display_name}
           </a>
         </h5>

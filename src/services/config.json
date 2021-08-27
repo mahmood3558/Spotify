@@ -3,7 +3,7 @@
 
   "authEndpoint": "https://accounts.spotify.com/authorize",
   "clientId": "88cc41d9bfe74ba4bd084451488e1cd4",
-  "redirectUri": "http://localhost:3000/redirect",
+  "redirectUri": "http://localhost:3000/home",
   "scopes": [
     "user-top-read",
     "user-read-currently-playing",

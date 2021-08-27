@@ -1,5 +1,3 @@
-import SetToken from "../../../services/setToken/setToken";
-
 const home = () => {
   return (
     <div>
@@ -30,9 +28,6 @@ const home = () => {
           </div>
         </div>
       </div>
-
-      <SetToken></SetToken>
-      {/* <UserPreview></UserPreview> */}
     </div>
   );
 };

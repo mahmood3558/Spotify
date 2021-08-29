@@ -1,152 +1,14 @@
-/* :root {
-  --gray-700: #00000080 !important;
-  --gray-600: #121212 !important;
-  --gray-500: rgba(0, 0, 0, 0.7) !important;
-  --gray-400: #404040 !important;
-  --gray-300: hsla(0, 0%, 100%, 0.6) !important;
-  --gray-200: #282828 !important;
-  --gray-100: #b3b3b3 !important;
-  --bg-liked-songs: linear-gradient(135deg, #450af5, #c4efd9) !important;
-  --green-100: #1ed760 !important;
-  --green-200: #1db954 !important;
-}
-@font-face {
-  font-family: spotify-circular !important;
-  src: url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Light.afd9ab26.woff2)
-      format("woff2"),
-    url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Light.2a78c017.woff)
-      format("woff"),
-    url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Light.89e4be2e.ttf)
-      format("truetype") !important;
-  font-weight: 200 !important;
-  font-style: normal !important;
-  font-display: swap !important;
-}
-@font-face {
-  font-family: spotify-circular !important;
-  src: url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Book.3466e0ec.woff2)
-      format("woff2"),
-    url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Book.ea8d19db.woff)
-      format("woff"),
-    url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Book.a357677a.ttf)
-      format("truetype") !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-  font-display: swap !important;
-}
-html,
 body {
-  height: 100% !important;
-  background-color: var(--gray-600) !important;
-  font-family: "spotify-circular" !important;
+  background: #121212 !important;
 }
-
-.bg-gray-700 {
-  background-color: var(--gray-700) !important;
-}
-
-.bg-gray-200 {
-  background-color: var(--gray-200) !important;
-}
-
-.bg-gray-500 {
-  background-color: var(--gray-500) !important;
-}
-
-.bg-gray-600 {
-  background-color: var(--gray-600) !important;
-}
-
-.bg-green-200 {
-  background-color: var(--green-200) !important;
-}
-
-.bg-liked-songs {
-  background-image: var(--bg-liked-songs) !important;
-}
-
-.hover\:border-green-200:hover {
-  border-color: var(--green-200) !important;
-}
-
-.border-gray-100 {
-  border-color: var(--gray-100) !important;
-}
-
-.border-gray-200 {
-  border-color: var(--gray-200) !important;
-}
-
-.border-gray-300 {
-  border-color: var(--gray-300) !important;
-}
-
-.border-gray-400 {
-  border-color: var(--gray-400) !important;
-}
-
-.text-2xl {
-  font-size: 1.75rem !important;
-}
-
-.text-gray-100 {
-  color: var(--gray-100) !important;
-}
-
-.text-green-200 {
-  color: var(--green-200) !important;
-}
-
-.w-7 {
-  width: 1.75rem !important;
-}
-
-.w-14 {
-  width: 3.5rem !important;
-}
-
-.h-7 {
-  height: 1.75rem !important;
-}
-
-.h-14 {
-  height: 3.5rem !important;
-}
-
-.pt-full {
-  padding-top: 100% !important;
-}
-
-.text-line-clamp-1 {
-  -webkit-line-clamp: 1 !important;
-  -webkit-box-orient: vertical !important;
-  display: -webkit-box !important;
-  word-break: break-all !important;
-  overflow: hidden !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- */
 
 .cards-2 {
-  padding-top: 6.625rem;
+  height: 350px;
+  border-radius: 0.375rem;
+  padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  background-color: #fbfbfb;
+  background-color: #282828;
+  margin-bottom: 25px;
 }
 
 .cards-2 .section-title {
@@ -160,27 +22,31 @@ body {
 }
 
 .cards-2 .card {
-  margin-bottom: 5.625rem;
+  margin-bottom: 5.25rem;
   border: none;
   background-color: transparent;
 }
 
 .cards-2 .card-image img {
-  border-top-left-radius: 0.375rem;
-  border-top-right-radius: 0.375rem;
-}
-
-.cards-2 .card-body {
-  padding: 2.25rem 2rem 2.125rem 2rem;
-  border: 1px solid #ebe8e8;
-  border-bottom-left-radius: 0.375rem;
-  border-bottom-right-radius: 0.375rem;
-  background-color: #fff;
+  margin-top: auto;
+  margin-left: 7%;
+  border-radius: 0.375rem;
 }
 
 .cards-2 h3 {
+  margin: 13px;
+  font-size: 18px !important;
   margin-bottom: 0.75rem;
-  text-align: center;
+  text-align: left;
+  color: #ffffff;
+}
+
+.cards-2 p {
+  margin: 10px;
+  font-size: 15px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff;
 }
 
 .cards-2 .list-unstyled {
@@ -194,13 +60,13 @@ body {
 }
 
 .cards-2 .list-unstyled .media-body {
-  margin-left: 0.625rem;
+  margin-left: 1.625rem;
 }
 
 .cards-2 .price {
   margin-bottom: 0.25rem;
   color: #484a46;
-  font: 700 1rem/1.5rem "Montserrat", sans-serif;
+  font: 800 10.5rem/111rem "Montserrat", sans-serif;
   text-align: center;
 }
 
@@ -213,12 +79,13 @@ body {
   text-align: center;
 }
 
-.cards-2 .btn-solid-reg:hover {
-  background-color: #fff;
+.cards-2:hover {
+  background-color: #616161;
 }
 
 .cards-2 .card {
-  max-width: 18.25rem;
+  max-width: 10.25rem;
+  max-height: 10.25rem;
   display: inline-block;
   vertical-align: top;
 }
@@ -226,10 +93,6 @@ body {
 .cards-2 .col-lg-12 div.card:nth-child(3n + 2) {
   margin-right: 1.25rem;
   margin-left: 1.25rem;
-}
-
-.cards-2 .card {
-  max-width: 20.875rem;
 }
 
 .cards-2 .card-body {
@@ -256,7 +119,7 @@ body {
   --dk-dark-bg: #313348;
   --dk-darker-bg: #2a2b3d;
   --navbar-bg-color: #6f6486;
-  --sidebar-bg-color: #252636;
+  --sidebar-bg-color: #090909;
   --sidebar-width: 250px;
 }
 
@@ -268,7 +131,6 @@ body {
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--dk-darker-bg);
   font-size: 0.925rem;
 }
 
@@ -634,7 +496,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ffffff;
 }
 
 .login-logo {
@@ -665,4 +527,27 @@ body {
 
 .login-btn--login {
   margin: 0 auto;
+}
+
+.li:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.text-header {
+  font-size: 30px;
+  color: #ffffff;
+  margin-top: 13px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.play-icon {
+  text-align: right !important;
+  text-align: end !important;
+  color: rgb(190, 16, 16) !important;
+  font-size: 50px !important;
+}
+
+.play-icon:hover {
+  color: rgb(29, 185, 84) !important;
 }

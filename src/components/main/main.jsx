@@ -6,6 +6,7 @@ import Search from "./search/search";
 import PlayList from "./playList/playList";
 import LikedSonge from "./playList/likedSonge";
 import CreatePlaylist from "./playList/createPlaylist";
+import Profile from "./profile/profile";
 
 const main = () => {
   return (
@@ -18,6 +19,7 @@ const main = () => {
         <Route path="/playList" component={PlayList} />
         <Route path="/likedSonge" component={LikedSonge} />
         <Route path="/createPlaylist" component={CreatePlaylist} />
+        <Route path="/profile" component={Profile} />
 
         {/* <Route path="/" exact render={() => <About teachersName="یونس قربانی" />}/>  */}
       </Switch>

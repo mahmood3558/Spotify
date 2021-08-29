@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import User from "./userPreview";
+import ProfilePreview from "../main/profile/profilePreview";
 
 const index = () => {
   return (
@@ -14,10 +14,10 @@ const index = () => {
           data-close="show-side-navigation1"
         ></i>
 
-        <User></User>
+        <ProfilePreview></ProfilePreview>
 
         <ul className="categories list-unstyled sidebar-header">
-          <li>
+          <li className="li ">
             <i className="fa fa-home"></i>
             <NavLink
               to="/home"
@@ -27,7 +27,7 @@ const index = () => {
               Home
             </NavLink>
           </li>
-          <li className="">
+          <li className="li">
             <i className="fa fa-search"></i>
             <NavLink
               to="/search"
@@ -37,7 +37,7 @@ const index = () => {
               Search
             </NavLink>
           </li>
-          <li className="">
+          <li className="li">
             <i className="fa fa-align-justify"></i>
             <NavLink
               to="/library"
@@ -50,7 +50,7 @@ const index = () => {
         </ul>
 
         <ul className="categories list-unstyled">
-          <li className="">
+          <li className="li">
             <i className="fa fa-heart"></i>
             <NavLink
               to="/likedSonge"
@@ -60,7 +60,7 @@ const index = () => {
               Liked Songs
             </NavLink>
           </li>
-          <li className="">
+          <li className="li">
             <i className="fa fa-plus "></i>
             <NavLink
               to="/createPlaylist"
@@ -70,7 +70,7 @@ const index = () => {
               Create Playlist
             </NavLink>
           </li>
-          <li className="">
+          <li className="li">
             <i className="fa fa-music  "></i>
             <NavLink
               to="/playList"

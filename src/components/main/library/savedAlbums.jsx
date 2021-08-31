@@ -1,18 +1,18 @@
 import React from "react";
 
-import { playlists } from "../../../services/service";
+import { savedAlbums } from "../../../services/service";
 
-const Playlist = () => {
-  const [getplaylists, setplaylists] = React.useState([]);
+const SavedAlbums = () => {
+  const [getSavedAlbums, setSavedAlbums] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
 
   const token = async () => {
     try {
-      const get = await playlists();
-      console.log("playlists");
+      const get = await savedAlbums();
+      console.log("savedAlbums");
       console.log(get);
-      console.log("playlists");
-      setplaylists(get.data.items);
+      console.log("savedAlbums");
+      setSavedAlbums(get.data.items);
     } catch (e) {
       console.error(e);
     }
@@ -24,25 +24,24 @@ const Playlist = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Playlists</h3>
-
+      <h3 className="text-header">Your Saved Albums</h3>
       <div className="container">
         <div className="row">
-          {getplaylists.map((playlist) => {
+          {getSavedAlbums.map((savedAlbum) => {
             return (
               <div className="col-lg-2">
                 <div id="services" className="cards">
                   <div className="card">
                     <div className="card-image">
                       <img
-                        className="img-fluid"
-                        src={playlist.images[0].url}
+                        className="img-fluid "
+                        src={savedAlbum.album.images[0].url}
                         alt="alternative"
                       />
                     </div>
                     <div>
-                      <h3 className="">{playlist.name}</h3>
-                      <p className="">by {playlist.owner.display_name}</p>
+                      <h3 className="">{savedAlbum.album.name}</h3>
+                      <p className="">{savedAlbum.album.artists[0].name}</p>
                     </div>
                   </div>
                 </div>
@@ -55,4 +54,4 @@ const Playlist = () => {
   );
 };
 
-export default Playlist;
+export default SavedAlbums;

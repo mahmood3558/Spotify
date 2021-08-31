@@ -28,21 +28,31 @@ export const recentlyPlayedTracks = () => {
 
 //search
 export const search = (searchWord) => {
-  console.log("getSearch");
-  console.log(searchWord);
-  console.log("getSearch");
-  // const searchWord = "lover";
   return http.get(
     `${config.spotify}/v1/search?q=${searchWord}&type=track%2Cartist%2Calbum%2Cplaylist%2Cepisode&market=US&limit=12`
   );
 };
 
-// export const searchTrack = () => {
-//   return http.get(`${config.spotify}/v1/search?q=Muse&type=track`);
-// };
-
 export const categories = () => {
   return http.get(`${config.spotify}/v1/browse/categories`);
+};
+
+//Lib
+export const followedArtists = () => {
+  return http.get(`${config.spotify}/v1/me/following?type=artist`);
+};
+
+export const savedAlbums = () => {
+  return http.get(`${config.spotify}/v1/me/albums`);
+};
+
+//play list
+export const likedSonge = () => {
+  return http.get(`${config.spotify}/v1/me/tracks`);
+};
+
+export const playlists = () => {
+  return http.get(`${config.spotify}/v1/me/playlists`);
 };
 
 /////////////////////////////////////////////////////////////////////////////

@@ -1,18 +1,18 @@
 import React from "react";
 
-import { playlists } from "../../../services/service";
+import { followedArtists } from "../../../services/service";
 
-const Playlist = () => {
-  const [getplaylists, setplaylists] = React.useState([]);
+const FollowedArtists = () => {
+  const [getFollowedArtists, setFollowedArtists] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
 
   const token = async () => {
     try {
-      const get = await playlists();
-      console.log("playlists");
+      const get = await followedArtists();
+      console.log("FollowedArtists");
       console.log(get);
-      console.log("playlists");
-      setplaylists(get.data.items);
+      console.log("FollowedArtists");
+      setFollowedArtists(get.data.artists.items);
     } catch (e) {
       console.error(e);
     }
@@ -24,25 +24,24 @@ const Playlist = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Playlists</h3>
-
+      <h3 className="text-header">Your Followed Artists</h3>
       <div className="container">
         <div className="row">
-          {getplaylists.map((playlist) => {
+          {getFollowedArtists.map((followedArtist) => {
             return (
               <div className="col-lg-2">
-                <div id="services" className="cards">
+                <div id="services" className="cards2">
                   <div className="card">
                     <div className="card-image">
                       <img
-                        className="img-fluid"
-                        src={playlist.images[0].url}
+                        className="img-fluid round-img"
+                        src={followedArtist.images[0].url}
                         alt="alternative"
                       />
                     </div>
                     <div>
-                      <h3 className="">{playlist.name}</h3>
-                      <p className="">by {playlist.owner.display_name}</p>
+                      <h3 className="">{followedArtist.name}</h3>
+                      {/* <p className="">{topTrack.artists[0].name}</p> */}
                     </div>
                   </div>
                 </div>
@@ -55,4 +54,4 @@ const Playlist = () => {
   );
 };
 
-export default Playlist;
+export default FollowedArtists;

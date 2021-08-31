@@ -622,8 +622,8 @@ body {
 .login-btn {
   background-color: transparent;
   border-radius: 2em;
-  border: 0.2em solid #1ecd97;
-  color: #1ecd97;
+  border: 0.2em solid #1ed660;
+  color: #1ed660;
   cursor: pointer;
   font-size: 3vmin;
   padding: 0.7em 1.5em;
@@ -632,7 +632,7 @@ body {
 }
 
 .login-btn:hover {
-  background: #1ecd97;
+  background: #1ed660;
   color: #333;
 }
 
@@ -818,4 +818,16 @@ body {
   .search-btn {
     background: #ffffff;
   }
+}
+
+.clo {
+  color: #1db954 !important;
+  background-color: #121212 !important;
+  border-color: #171717 !important;
+}
+
+.clo {
+  color: #1db954 !important;
+  background-color: #121212 !important;
+  border-color: #171717 !important;
 }

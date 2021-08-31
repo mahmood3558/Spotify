@@ -1,109 +1,3 @@
-body {
-  background: #121212 !important;
-}
-
-.cards-2 {
-  height: 350px;
-  border-radius: 0.375rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  background-color: #282828;
-  margin-bottom: 25px;
-}
-
-.cards-2 .section-title {
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.cards-2 h2 {
-  margin-bottom: 3.25rem;
-  text-align: center;
-}
-
-.cards-2 .card {
-  margin-bottom: 5.25rem;
-  border: none;
-  background-color: transparent;
-}
-
-.cards-2 .card-image img {
-  margin-top: auto;
-  margin-left: 7%;
-  border-radius: 0.375rem;
-}
-
-.cards-2 h3 {
-  margin: 13px;
-  font-size: 18px !important;
-  margin-bottom: 0.75rem;
-  text-align: left;
-  color: #ffffff;
-}
-
-.cards-2 p {
-  margin: 10px;
-  font-size: 15px !important;
-  margin-bottom: 0.75rem;
-  text-align: left;
-  color: #ffffff;
-}
-
-.cards-2 .list-unstyled {
-  margin-bottom: 1.5rem;
-}
-
-.cards-2 .list-unstyled .fas {
-  color: #14bf98;
-  font-size: 0.5rem;
-  line-height: 1.375rem;
-}
-
-.cards-2 .list-unstyled .media-body {
-  margin-left: 1.625rem;
-}
-
-.cards-2 .price {
-  margin-bottom: 0.25rem;
-  color: #484a46;
-  font: 800 10.5rem/111rem "Montserrat", sans-serif;
-  text-align: center;
-}
-
-.cards-2 .price span {
-  color: #14bf98;
-}
-
-.cards-2 .button-container {
-  margin-top: -1.375rem;
-  text-align: center;
-}
-
-.cards-2:hover {
-  background-color: #616161;
-}
-
-.cards-2 .card {
-  max-width: 10.25rem;
-  max-height: 10.25rem;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.cards-2 .col-lg-12 div.card:nth-child(3n + 2) {
-  margin-right: 1.25rem;
-  margin-left: 1.25rem;
-}
-
-.cards-2 .card-body {
-  padding: 2.25rem 2.5rem 2.125rem 2.5rem;
-}
-
-.cards-2 .col-lg-12 div.card:nth-child(3n + 2) {
-  margin-right: 3rem;
-  margin-left: 3rem;
-}
-
 @import 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet';
 
 :root {
@@ -132,6 +26,7 @@ body {
 body {
   font-family: "Inter", sans-serif;
   font-size: 0.925rem;
+  background: #121212 !important;
 }
 
 #wrapper {
@@ -476,6 +371,222 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.cards {
+  height: 275px;
+  border-radius: 0.375rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  background-color: #282828;
+  margin-bottom: 25px;
+}
+
+.cards .section-title {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.cards h2 {
+  margin-bottom: 3.25rem;
+  text-align: center;
+}
+
+.cards .card {
+  margin-bottom: 5.25rem;
+  border: none;
+  background-color: transparent;
+}
+
+.cards .card-image img {
+  margin-top: auto;
+  margin-left: 7%;
+  border-radius: 0.375rem;
+}
+
+.cards h3 {
+  margin: 13px;
+  font-size: 18px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards p {
+  margin: 10px;
+  font-size: 15px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards .list-unstyled {
+  margin-bottom: 1.5rem;
+}
+
+.cards .list-unstyled .fas {
+  color: #14bf98;
+  font-size: 0.5rem;
+  line-height: 1.375rem;
+}
+
+.cards .list-unstyled .media-body {
+  margin-left: 1.625rem;
+}
+
+.cards .player {
+  margin-bottom: 0.25rem;
+  color: #484a46;
+  font: 800 10.5rem/111rem "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.cards .player span {
+  color: #14bf98;
+}
+
+.cards .button-container {
+  margin-top: -1.375rem;
+  text-align: center;
+}
+
+.cards:hover {
+  background-color: #616161;
+}
+
+.cards .card {
+  max-width: 10.25rem;
+  max-height: 10.25rem;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cards .col-lg-12 div.card:nth-child(3n + 2) {
+  margin-right: 1.25rem;
+  margin-left: 1.25rem;
+}
+
+.cards .card-body {
+  padding: 2.25rem 2.5rem 2.125rem 2.5rem;
+}
+
+.cards .col-lg-12 div.card:nth-child(3n + 2) {
+  margin-right: 3rem;
+  margin-left: 3rem;
+}
+
+.cards2 {
+  height: 240px;
+  border-radius: 0.375rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  background-color: #282828;
+  margin-bottom: 25px;
+}
+
+.cards2 .section-title {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.cards2 h2 {
+  margin-bottom: 3.25rem;
+  text-align: center;
+}
+
+.cards2 .card {
+  margin-bottom: 5.25rem;
+  border: none;
+  background-color: transparent;
+}
+
+.cards2 .card-image img {
+  margin-top: auto;
+  margin-left: 7%;
+  border-radius: 0.375rem;
+}
+
+.cards2 h3 {
+  margin: 13px;
+  font-size: 18px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards2 p {
+  margin: 10px;
+  font-size: 15px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards2 .list-unstyled {
+  margin-bottom: 1.5rem;
+}
+
+.cards2 .list-unstyled .fas {
+  color: #14bf98;
+  font-size: 0.5rem;
+  line-height: 1.375rem;
+}
+
+.cards2 .list-unstyled .media-body {
+  margin-left: 1.625rem;
+}
+
+.cards2 .player {
+  margin-bottom: 0.25rem;
+  color: #484a46;
+  font: 800 10.5rem/111rem "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.cards2 .player span {
+  color: #14bf98;
+}
+
+.cards2 .button-container {
+  margin-top: -1.375rem;
+  text-align: center;
+}
+
+.cards2:hover {
+  background-color: #616161;
+}
+
+.cards2 .card {
+  max-width: 10.25rem;
+  max-height: 10.25rem;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cards2 .col-lg-12 div.card:nth-child(3n + 2) {
+  margin-right: 1.25rem;
+  margin-left: 1.25rem;
+}
+
+.cards2 .card-body {
+  padding: 2.25rem 2.5rem 2.125rem 2.5rem;
+}
+
+.cards2 .col-lg-12 div.card:nth-child(3n + 2) {
+  margin-right: 3rem;
+  margin-left: 3rem;
+}
+
 .navbar-hover:hover {
   color: rgb(29, 185, 84) !important;
 }
@@ -550,4 +661,161 @@ body {
 
 .play-icon:hover {
   color: rgb(29, 185, 84) !important;
+}
+
+.round-img {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 100% !important;
+}
+
+.Square-img {
+  width: 160px !important;
+  height: 160px !important;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.search-bar {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.search-bar input,
+.search-btn,
+.search-btn:before,
+.search-btn:after {
+  transition: all 0.25s ease-out;
+}
+.search-bar input,
+.search-btn {
+  width: 3em;
+  height: 3em;
+}
+.search-bar input:invalid:not(:focus),
+.search-btn {
+  cursor: pointer;
+}
+.search-bar,
+.search-bar input:focus,
+.search-bar input:valid {
+  width: 100%;
+}
+.search-bar input:focus,
+.search-bar input:not(:focus) + .search-btn:focus {
+  outline: transparent;
+}
+.search-bar {
+  margin: auto;
+  padding: 1.5em;
+  justify-content: center;
+  max-width: 30em;
+}
+.search-bar input {
+  background: transparent;
+  border-radius: 1.5em;
+  box-shadow: 0 0 0 0.4em #171717 inset;
+  padding: 0.75em;
+  transform: translate(0.5em, 0.5em) scale(0.5);
+  transform-origin: 100% 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.search-bar input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.search-bar input:focus,
+.search-bar input:valid {
+  background: #fff;
+  border-radius: 0.375em 0 0 0.375em;
+  box-shadow: 0 0 0 0.1em #d9d9d9 inset;
+  transform: scale(1);
+}
+.search-btn {
+  background: #171717;
+  border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+  padding: 0.75em;
+  position: relative;
+  transform: translate(0.25em, 0.25em) rotate(45deg) scale(0.25, 0.125);
+  transform-origin: 0 50%;
+}
+.search-btn:before,
+.search-btn:after {
+  content: "";
+  display: block;
+  opacity: 0;
+  position: absolute;
+}
+.search-btn:before {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+  top: 0.75em;
+  left: 0.75em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.search-btn:after {
+  background: #f1f1f1;
+  border-radius: 0 0.25em 0.25em 0;
+  top: 51%;
+  left: 51%;
+  width: 0.75em;
+  height: 0.25em;
+  transform: translate(0.2em, 0) rotate(45deg);
+  transform-origin: 0 50%;
+}
+.search-btn span {
+  display: inline-block;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+/* Active state */
+.search-bar input:focus + .search-btn,
+.search-bar input:valid + .search-btn {
+  background: #1db954;
+  border-radius: 0 0.375em 0.375em 0;
+  transform: scale(1);
+}
+.search-bar input:focus + .search-btn:before,
+.search-bar input:focus + .search-btn:after,
+.search-bar input:valid + .search-btn:before,
+.search-bar input:valid + .search-btn:after {
+  opacity: 1;
+}
+.search-bar input:focus + .search-btn:hover,
+.search-bar input:valid + .search-btn:hover,
+.search-bar input:valid:not(:focus) + .search-btn:focus {
+  background: #1db954;
+}
+.search-bar input:focus + .search-btn:active,
+.search-bar input:valid + .search-btn:active {
+  transform: translateY(1px);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body,
+  input {
+    color: #ffffff;
+  }
+  body {
+    background: #171717;
+  }
+  .search-bar input {
+    box-shadow: 0 0 0 0.4em #ffffff inset;
+  }
+  .search-bar input:focus,
+  .search-bar input:valid {
+    background: #3d3d3d;
+    box-shadow: 0 0 0 0.1em #3d3d3d inset;
+  }
+  .search-btn {
+    background: #ffffff;
+  }
 }

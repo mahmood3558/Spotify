@@ -1,18 +1,18 @@
 import React from "react";
 
-import { newReleases } from "../../../services/service";
+import { recentlyPlayedTracks } from "../../../services/service";
 
-const NewReleases = () => {
-  const [getNewReleases, setNewReleases] = React.useState([]);
+const RecentlyPlayedTracks = () => {
+  const [getRecentlyPlayedTracks, setRecentlyPlayedTracks] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
 
   const token = async () => {
     try {
-      const get = await newReleases();
-      console.log("TopTracks");
-      console.log(get);
-      console.log("TopTracks");
-      setNewReleases(get.data.albums.items);
+      const get = await recentlyPlayedTracks();
+      console.log("RecentlyPlayedTracks");
+      console.log(get.data.items);
+      console.log("RecentlyPlayedTracks");
+      setRecentlyPlayedTracks(get.data.items);
     } catch (e) {
       console.error(e);
     }
@@ -26,7 +26,7 @@ const NewReleases = () => {
     <div>
       <div className="container">
         <div className="row">
-          {getNewReleases.map((newRelease) => {
+          {getRecentlyPlayedTracks.map((recentlyPlayedTracks) => {
             return (
               <div className="col-lg-2">
                 <div id="services" className="cards">
@@ -34,13 +34,17 @@ const NewReleases = () => {
                     <div className="card-image">
                       <img
                         className="img-fluid"
-                        src={newRelease.images[0].url}
+                        src={recentlyPlayedTracks.track.album.images[0].url}
                         alt="alternative"
                       />
                     </div>
                     <div>
-                      <h3 className="">{newRelease.name}</h3>
-                      <p className="">{newRelease.artists[0].name}</p>
+                      <h3 className="">
+                        {recentlyPlayedTracks.track.album.name}
+                      </h3>
+                      <p className="">
+                        {recentlyPlayedTracks.track.album.artists[0].name}
+                      </p>
                       {/* <i className="fa fa-play-circle play-icon"></i> */}
                     </div>
                   </div>
@@ -54,4 +58,4 @@ const NewReleases = () => {
   );
 };
 
-export default NewReleases;
+export default RecentlyPlayedTracks;

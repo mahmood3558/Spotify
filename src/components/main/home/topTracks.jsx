@@ -29,7 +29,7 @@ const TopTracks = () => {
           {getTopTracks.map((topTrack) => {
             return (
               <div className="col-lg-2">
-                <div id="services" className="cards-2">
+                <div id="services" className="cards">
                   <div className="card">
                     <div className="card-image">
                       <img

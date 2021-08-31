@@ -1,18 +1,18 @@
 import React from "react";
 
-import { newReleases } from "../../../services/service";
+import { categories } from "../../../services/service";
 
-const NewReleases = () => {
-  const [getNewReleases, setNewReleases] = React.useState([]);
+const Categories = () => {
+  const [getCategories, setCategories] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
 
   const token = async () => {
     try {
-      const get = await newReleases();
-      console.log("TopTracks");
-      console.log(get);
-      console.log("TopTracks");
-      setNewReleases(get.data.albums.items);
+      const get = await categories();
+      console.log("Categories");
+      console.log(get.data.categories.items);
+      console.log("Categories");
+      setCategories(get.data.categories.items);
     } catch (e) {
       console.error(e);
     }
@@ -26,22 +26,21 @@ const NewReleases = () => {
     <div>
       <div className="container">
         <div className="row">
-          {getNewReleases.map((newRelease) => {
+          {getCategories.map((Categories) => {
             return (
               <div className="col-lg-2">
-                <div id="services" className="cards">
+                <div id="services" className="cards2">
                   <div className="card">
                     <div className="card-image">
                       <img
                         className="img-fluid"
-                        src={newRelease.images[0].url}
+                        src={Categories.icons[0].url}
                         alt="alternative"
                       />
                     </div>
                     <div>
-                      <h3 className="">{newRelease.name}</h3>
-                      <p className="">{newRelease.artists[0].name}</p>
-                      {/* <i className="fa fa-play-circle play-icon"></i> */}
+                      <h3 className="">{Categories.name}</h3>
+                      {/* <p className="">{Categories.owner.display_name}</p> */}
                     </div>
                   </div>
                 </div>
@@ -54,4 +53,4 @@ const NewReleases = () => {
   );
 };
 
-export default NewReleases;
+export default Categories;

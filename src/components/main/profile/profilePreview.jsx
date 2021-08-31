@@ -10,8 +10,6 @@ const ProfilePreview = () => {
   const token = async () => {
     try {
       const get = await profile();
-      console.log(get.data.images);
-
       setProfile(get.data);
       setimg(get.data.images);
     } catch (e) {

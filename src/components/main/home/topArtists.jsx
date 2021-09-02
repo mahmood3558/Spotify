@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { topArtists } from "../../../services/service";
 
@@ -39,7 +40,11 @@ const TopArtists = () => {
                       />
                     </div>
                     <div>
-                      <h3 className="">{topArtists.name}</h3>
+                      <h3 className="">
+                        <NavLink to="/artist" className="link">
+                          {topArtists.name}
+                        </NavLink>
+                      </h3>
                       {/* <p className="">{topTrack.artists[0].name}</p> */}
                     </div>
                   </div>

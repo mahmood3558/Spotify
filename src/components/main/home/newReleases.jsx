@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { newReleases } from "../../../services/service";
 
@@ -40,7 +41,10 @@ const NewReleases = () => {
                     </div>
                     <div>
                       <h3 className="">{newRelease.name}</h3>
-                      <p className="">{newRelease.artists[0].name}</p>
+                      <NavLink to="/artist" className="link">
+                        {newRelease.artists[0].name}
+                      </NavLink>
+                      {/* <p className="">{newRelease.artists[0].name}</p> */}
                       {/* <i className="fa fa-play-circle play-icon"></i> */}
                     </div>
                   </div>

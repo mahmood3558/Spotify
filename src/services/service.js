@@ -55,6 +55,21 @@ export const playlists = () => {
   return http.get(`${config.spotify}/v1/me/playlists`);
 };
 
+//Artist
+export const artist = (artistsId) => {
+  const id = "06HL4z0CvFAxyc27GXpf02";
+  return http.get(`${config.spotify}/v1/artists/${id}`);
+};
+
+export const artistAlbums = (artistsId) => {
+  const id = "06HL4z0CvFAxyc27GXpf02";
+  return http.get(`${config.spotify}/v1/artists/${id}/albums`);
+};
+
+export const artistTopTracks = (artistsId) => {
+  const id = "06HL4z0CvFAxyc27GXpf02";
+  return http.get(`${config.spotify}/v1/artists/${id}/top-tracks?market=us`);
+};
 /////////////////////////////////////////////////////////////////////////////
 
 export const loginUser = (user) => {

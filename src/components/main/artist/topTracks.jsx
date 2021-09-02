@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-import { likedSonge } from "../../../services/service";
+import { artistTopTracks } from "../../../services/service";
 
-const LikedSonge = () => {
-  const [getLikedSonges, setLikedSonges] = React.useState([]);
+const TopTracks = () => {
+  const [getArtistTopTracks, setArtistTopTracks] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
 
   const millisToMinutesAndSeconds = (millis) => {
@@ -16,11 +17,11 @@ const LikedSonge = () => {
 
   const token = async () => {
     try {
-      const get = await likedSonge();
-      console.log("LikedSongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+      const get = await artistTopTracks();
+      console.log("artistTopTrackssssssssssssssssssssssssssss");
       console.log(get);
-      console.log("LikedSongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-      setLikedSonges(get.data.items);
+      console.log("artistTopTracksssssssssssssssssssssssssssss");
+      setArtistTopTracks(get.data.tracks);
     } catch (e) {
       console.error(e);
     }
@@ -32,9 +33,9 @@ const LikedSonge = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Liked Songe</h3>
+      <h3 className="text-header">Top Tracks</h3>
 
-      {getLikedSonges.map((likedSonge) => {
+      {getArtistTopTracks.map((artistTopTrack) => {
         return (
           <div className="container ">
             <div className="row  song-list">
@@ -42,30 +43,23 @@ const LikedSonge = () => {
                 <div className="img-player">
                   <img
                     className="song-img"
-                    src={likedSonge.track.album.images[0].url}
+                    src={artistTopTrack.album.images[0].url}
                     alt="alternative"
                   />
                   <div className="overlay icon">
                     <i className="fa fa-play-circle "></i>
                   </div>
                 </div>
-                {/* <img
-                  className="song-img"
-                  src={likedSonge.track.album.images[0].url}
-                  alt="alternative"
-                /> */}
               </div>
               <div className="col-3 song-p">
-                <h6>{likedSonge.track.name}</h6>
-                <p1>{likedSonge.track.artists[0].name}</p1>
+                <h6>{artistTopTrack.name}</h6>
+                <p1>{artistTopTrack.artists[0].name}</p1>
               </div>
               <div className="col-6 song-p">
-                <p>{likedSonge.track.album.name}</p>
+                <p>{artistTopTrack.album.name}</p>
               </div>
               <div className="col-1 song-p">
-                <h6>
-                  {millisToMinutesAndSeconds(likedSonge.track.duration_ms)}
-                </h6>
+                <h6>{millisToMinutesAndSeconds(artistTopTrack.duration_ms)}</h6>
               </div>
             </div>
           </div>
@@ -75,4 +69,4 @@ const LikedSonge = () => {
   );
 };
 
-export default LikedSonge;
+export default TopTracks;

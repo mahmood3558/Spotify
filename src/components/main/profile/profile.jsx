@@ -10,9 +10,8 @@ const ProfilePreview = () => {
     try {
       const get = await profile();
       console.log(get.data.images);
-
       setProfile(get.data);
-      setimg(get.data.images);
+      setimg(get.data.images[0]);
     } catch (e) {
       console.error(e);
     }
@@ -23,22 +22,17 @@ const ProfilePreview = () => {
   }, []);
 
   return (
-    <div className="d-flex align-items-center px-4 py-5">
-      {getimg.map((profile, index) => {
-        return (
-          <div>
-            <img
-              className="rounded-pill img-fluid"
-              width="100"
-              src={profile.url}
-              alt=""
-            />
-          </div>
-        );
-      })}
-
+    <div className="d-flex align-items-center px-4 py-5 profile">
+      <div>
+        <img
+          className="rounded-pill img-fluid"
+          width="100"
+          src={getimg.url}
+          alt=""
+        />
+      </div>
       <div className="ms-2">
-        <h5 className="fs-6 mb-0">{getProfile.display_name}</h5>
+        <h3 className="fs-6 mb-0">{getProfile.display_name}</h3>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const index = () => {
   return (
     <div>
       <aside
-        className="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left"
+        className="sidebar position-fixed top-0 left-0 overflow-auto h-100  nav-z-index float-left"
         id="show-side-navigation1"
       >
         <i

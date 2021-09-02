@@ -11,7 +11,7 @@ const ProfilePreview = () => {
     try {
       const get = await profile();
       setProfile(get.data);
-      setimg(get.data.images);
+      setimg(get.data.images[0]);
     } catch (e) {
       console.error(e);
     }
@@ -23,21 +23,16 @@ const ProfilePreview = () => {
 
   return (
     <div className="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-      {getimg.map((profile, index) => {
-        return (
-          <NavLink to="/profile">
-            <div>
-              <img
-                className="rounded-pill img-fluid"
-                width="65"
-                src={profile.url}
-                alt=""
-              />
-            </div>
-          </NavLink>
-        );
-      })}
-
+      <NavLink to="/profile">
+        <div>
+          <img
+            className="rounded-pill img-fluid"
+            width="65"
+            src={getimg.url}
+            alt=""
+          />
+        </div>
+      </NavLink>
       <div className="ms-2">
         <h5 className="fs-6 mb-0">
           <NavLink className="text-decoration-none" to="/profile">

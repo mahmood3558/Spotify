@@ -1,19 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { topTracks } from "../../../services/service";
+import { artistAlbums } from "../../../services/service";
 
-const TopTracks = () => {
-  const [getTopTracks, setTopTracks] = React.useState([]);
-  // const [getAlbum, setAlbum] = React.useState([]);
+const Albums = () => {
+  const [getArtistAlbums, setArtistAlbums] = React.useState([]);
 
   const token = async () => {
     try {
-      const get = await topTracks();
-      console.log("TopTracks");
-      console.log(get.data.items);
-      console.log("TopTracks");
-      setTopTracks(get.data.items);
+      const get = await artistAlbums();
+      console.log("Albumsssssssssssssssssssssssssssssssss");
+      console.log(get);
+      console.log("Albumsssssssssssssssssssssssssssssssss");
+      setArtistAlbums(get.data.items);
     } catch (e) {
       console.error(e);
     }
@@ -25,9 +24,11 @@ const TopTracks = () => {
 
   return (
     <div>
+      <h3 className="text-header">Albums</h3>
+
       <div className="container">
         <div className="row">
-          {getTopTracks.map((topTrack) => {
+          {getArtistAlbums.map((artistAlbum) => {
             return (
               <div className="col-lg-2">
                 <div id="services" className="cards">
@@ -35,17 +36,13 @@ const TopTracks = () => {
                     <div className="card-image">
                       <img
                         className="img-fluid"
-                        src={topTrack.album.images[0].url}
+                        src={artistAlbum.images[0].url}
                         alt="alternative"
                       />
                     </div>
                     <div>
-                      <h3 className="">{topTrack.album.name}</h3>
-                      <NavLink to="/artist" className="link">
-                        {topTrack.artists[0].name}
-                      </NavLink>
-                      {/* <p className="">{topTrack.artists[0].name}</p> */}
-                      {/* <i className="fa fa-play-circle play-icon"></i> */}
+                      <h3 className="">{artistAlbum.name}</h3>
+                      <p className="">{artistAlbum.artists[0].name}</p>
                     </div>
                   </div>
                 </div>
@@ -58,4 +55,4 @@ const TopTracks = () => {
   );
 };
 
-export default TopTracks;
+export default Albums;

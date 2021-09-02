@@ -24,6 +24,7 @@
 }
 
 body {
+  height: 89% !important;
   font-family: "Inter", sans-serif;
   font-size: 0.925rem;
   background: #121212 !important;
@@ -830,4 +831,128 @@ body {
   color: #1db954 !important;
   background-color: #121212 !important;
   border-color: #171717 !important;
+}
+
+.song-img {
+  width: 65px;
+  height: 65px;
+}
+
+.song-list {
+  border-bottom: 1px solid #2a2b3c;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #282828;
+}
+
+.song-list:hover {
+  background-color: #616161;
+}
+
+.song-p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 8px;
+  font-size: 13px !important;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.img-player {
+  position: relative;
+  width: 100%;
+  max-width: 33px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.img-player:hover .overlay {
+  opacity: 1;
+  color: rgb(255, 255, 255);
+}
+
+.icon {
+  cursor: pointer;
+  color: white;
+  font-size: 45px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.player {
+  position: fixed;
+  height: 11% !important;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.mainn {
+  height: 89% !important;
+}
+
+.nav-z-index {
+  z-index: 1;
+}
+
+.link {
+  margin: 10px;
+  font-size: 15px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+.profile img {
+  width: "100" !important;
+}
+
+.profile h3 {
+  margin: 13px;
+  font-size: 18px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile p {
+  margin: 10px;
+  font-size: 15px !important;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #ffffff !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list {
+  background-color: #282828;
 }

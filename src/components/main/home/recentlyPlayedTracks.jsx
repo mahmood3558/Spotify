@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { recentlyPlayedTracks } from "../../../services/service";
 
@@ -42,9 +43,9 @@ const RecentlyPlayedTracks = () => {
                       <h3 className="">
                         {recentlyPlayedTracks.track.album.name}
                       </h3>
-                      <p className="">
+                      <NavLink to="/artist" className="link">
                         {recentlyPlayedTracks.track.album.artists[0].name}
-                      </p>
+                      </NavLink>
                       {/* <i className="fa fa-play-circle play-icon"></i> */}
                     </div>
                   </div>

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import Context from "../../../context/context";
 import { artist } from "../../../services/service";
 import Albums from "./albums";
 import TopTracks from "./topTracks";
@@ -9,14 +10,18 @@ const ShowArtist = () => {
   const [getArtist, setArtist] = React.useState([]);
   const [getImg, setImg] = React.useState([]);
   const [getFollowers, setFollowers] = React.useState([]);
+  const context = useContext(Context);
+  console.log("context.geArtistIdddddddddddddddddddddddddddddddd");
+  console.log(context.artistId);
+  console.log("context.geArtistIdddddddddddddddddddddddddddddddd");
   // const [getAlbum, setAlbum] = React.useState([]);
 
   const token = async () => {
     try {
-      const get = await artist();
-      console.log("ShowArtist");
+      const get = await artist(context.artistId);
+      console.log("ShowArtistttttttttttttttttttttttttttttttttt");
       console.log(get.data);
-      console.log("ShowArtist");
+      console.log("ShowArtisttttttttttttttttttttttttttttttttttt");
       setArtist(get.data);
       setImg(get.data.images[0]);
       setFollowers(get.data.followers);

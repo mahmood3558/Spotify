@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import Context from "../../../context/context";
 import { topTracks } from "../../../services/service";
 
 const TopTracks = () => {
   const [getTopTracks, setTopTracks] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
+  const context = useContext(Context);
 
   const token = async () => {
     try {
@@ -41,7 +43,13 @@ const TopTracks = () => {
                     </div>
                     <div>
                       <h3 className="">{topTrack.album.name}</h3>
-                      <NavLink to="/artist" className="link">
+                      <NavLink
+                        to="/artist"
+                        className="link"
+                        onClick={() =>
+                          context.handleArtistId(topTrack.artists[0].id)
+                        }
+                      >
                         {topTrack.artists[0].name}
                       </NavLink>
                       {/* <p className="">{topTrack.artists[0].name}</p> */}

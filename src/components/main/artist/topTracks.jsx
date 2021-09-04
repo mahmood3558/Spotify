@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
+import Context from "../../../context/context";
 import { artistTopTracks } from "../../../services/service";
 
 const TopTracks = () => {
-  const [getArtistTopTracks, setArtistTopTracks] = React.useState([]);
+  const [getArtistTopTracks, setArtistTopTracks] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
+  const context = useContext(Context);
 
   const millisToMinutesAndSeconds = (millis) => {
     var minutes = Math.floor(millis / 60000);
@@ -17,7 +19,7 @@ const TopTracks = () => {
 
   const token = async () => {
     try {
-      const get = await artistTopTracks();
+      const get = await artistTopTracks(context.artistId);
       console.log("artistTopTrackssssssssssssssssssssssssssss");
       console.log(get);
       console.log("artistTopTracksssssssssssssssssssssssssssss");
@@ -27,7 +29,7 @@ const TopTracks = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     token();
   }, []);
 
@@ -51,9 +53,18 @@ const TopTracks = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-3 song-p">
-                <h6>{artistTopTrack.name}</h6>
-                <p1>{artistTopTrack.artists[0].name}</p1>
+              <div className="col-3 ">
+                <h3 className="song-h3">{artistTopTrack.name}</h3>
+                <p1 className="song-p">{artistTopTrack.artists[0].name}</p1>
+                {/* <NavLink
+                  to="/artist"
+                  className="link song-p"
+                  onClick={() =>
+                    context.handleArtistId(artistTopTrack.artists[0].id)
+                  }
+                >
+                  {artistTopTrack.artists[0].name}
+                </NavLink> */}
               </div>
               <div className="col-6 song-p">
                 <p>{artistTopTrack.album.name}</p>

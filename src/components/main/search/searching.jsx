@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 
 import { search } from "../../../services/service";
 import Categories from "../search/categories";
+import Context from "../../../context/context";
 
 const Searching = () => {
   const [getSearch, setSearch] = React.useState([]);
-  let [showCategories, setShowCategories] = React.useState(true);
-
   const [getTracksSearch, setTracksSearch] = React.useState([]);
   const [getAlbumsSearch, setAlbumsSearch] = React.useState([]);
   const [getArtistsSearch, setArtistsSearch] = React.useState([]);
   const [getPlaylistsSearch, setPlaylistsSearch] = React.useState([]);
   const [getEpisodeSearch, setEpisodeSearch] = React.useState([]);
+  let [showCategories, setShowCategories] = React.useState(true);
+
+  const context = useContext(Context);
 
   const searching = async (event) => {
     event.preventDefault();
@@ -64,7 +67,16 @@ const Searching = () => {
                         </div>
                         <div>
                           <h3 className="">{track.album.name}</h3>
-                          <p className="">{track.album.artists[0].name}</p>
+                          {/* <p className="">{track.album.artists[0].name}</p> */}
+                          <NavLink
+                            to="/artist"
+                            className="link"
+                            onClick={() =>
+                              context.handleArtistId(track.album.artists[0].id)
+                            }
+                          >
+                            {track.album.artists[0].name}
+                          </NavLink>
                         </div>
                       </div>
                     </div>
@@ -96,7 +108,16 @@ const Searching = () => {
                         </div>
                         <div>
                           <h3 className="">{album.name}</h3>
-                          <p className="">{album.artists[0].name}</p>
+                          {/* <p className="">{album.artists[0].name}</p> */}
+                          <NavLink
+                            to="/artist"
+                            className="link"
+                            onClick={() =>
+                              context.handleArtistId(album.artists[0].id)
+                            }
+                          >
+                            {album.artists[0].name}
+                          </NavLink>
                         </div>
                       </div>
                     </div>
@@ -113,25 +134,31 @@ const Searching = () => {
               {getArtistsSearch.map((artist) => {
                 return (
                   <div className="col-lg-2">
-                    <div id="services" className="cards2 ">
-                      <div className="card">
-                        <div className="card-image">
-                          <img
-                            className="img-fluid round-img "
-                            src={
-                              artist.images[0] != null
-                                ? artist.images[0].url
-                                : "https://icon-library.com/images/person-image-icon/person-image-icon-12.jpg"
-                            }
-                            alt="alternative"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="">{artist.name}</h3>
-                          {/* <p className="">{artist.type}</p> */}
+                    <NavLink
+                      to="/artist"
+                      className="link"
+                      onClick={() => context.handleArtistId(artist.id)}
+                    >
+                      <div id="services" className="cards2 ">
+                        <div className="card">
+                          <div className="card-image">
+                            <img
+                              className="img-fluid round-img "
+                              src={
+                                artist.images[0] != null
+                                  ? artist.images[0].url
+                                  : "https://icon-library.com/images/person-image-icon/person-image-icon-12.jpg"
+                              }
+                              alt="alternative"
+                            />
+                          </div>
+                          <div>
+                            <h3 className="">{artist.name}</h3>
+                            {/* <p className="">{artist.type}</p> */}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </NavLink>
                   </div>
                 );
               })}

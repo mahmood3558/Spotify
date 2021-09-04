@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import Context from "../../../context/context";
 import { artistAlbums } from "../../../services/service";
 
 const Albums = () => {
   const [getArtistAlbums, setArtistAlbums] = React.useState([]);
 
+  const context = useContext(Context);
+
   const token = async () => {
     try {
-      const get = await artistAlbums();
+      const get = await artistAlbums(context.artistId);
       console.log("Albumsssssssssssssssssssssssssssssssss");
       console.log(get);
       console.log("Albumsssssssssssssssssssssssssssssssss");
@@ -43,6 +46,15 @@ const Albums = () => {
                     <div>
                       <h3 className="">{artistAlbum.name}</h3>
                       <p className="">{artistAlbum.artists[0].name}</p>
+                      {/* <NavLink
+                        to="/artist"
+                        className="link"
+                        onClick={() =>
+                          context.handleArtistId(artistAlbum.artists[0].id)
+                        }
+                      >
+                        {artistAlbum.artists[0].name}
+                      </NavLink> */}
                     </div>
                   </div>
                 </div>

@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import Context from "../../../context/context";
 import { newReleases } from "../../../services/service";
 
 const NewReleases = () => {
   const [getNewReleases, setNewReleases] = React.useState([]);
-  // const [getAlbum, setAlbum] = React.useState([]);
+
+  const context = useContext(Context);
 
   const token = async () => {
     try {
       const get = await newReleases();
-      console.log("TopTracks");
-      console.log(get);
-      console.log("TopTracks");
+      console.log("newReleasessssssssssssss");
+      console.log(get.data.albums.items);
+      console.log("newReleasessssssssssssssss");
       setNewReleases(get.data.albums.items);
     } catch (e) {
       console.error(e);
@@ -41,7 +43,13 @@ const NewReleases = () => {
                     </div>
                     <div>
                       <h3 className="">{newRelease.name}</h3>
-                      <NavLink to="/artist" className="link">
+                      <NavLink
+                        to="/artist"
+                        className="link"
+                        onClick={() =>
+                          context.handleArtistId(newRelease.artists[0].id)
+                        }
+                      >
                         {newRelease.artists[0].name}
                       </NavLink>
                       {/* <p className="">{newRelease.artists[0].name}</p> */}

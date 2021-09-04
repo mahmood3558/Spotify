@@ -1,7 +1,14 @@
 import { createContext } from "react";
 
 const Context = createContext({
-  handleSetUrl: () => {},
+  albumId: "",
+  artistId: "",
+  playerId: "",
+  playlistId: "",
+  handleAlbumId: () => {},
+  handleArtistId: () => {},
+  handlePlayerId: () => {},
+  handlePlaylistId: () => {},
 });
 
 export default Context;

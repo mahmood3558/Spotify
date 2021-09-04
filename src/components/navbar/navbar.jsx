@@ -60,7 +60,7 @@ const index = () => {
               Liked Songs
             </NavLink>
           </li>
-          <li className="li">
+          {/* <li className="li">
             <i className="fa fa-plus "></i>
             <NavLink
               to="/createPlaylist"
@@ -69,7 +69,7 @@ const index = () => {
             >
               Create Playlist
             </NavLink>
-          </li>
+          </li> */}
           <li className="li">
             <i className="fa fa-music  "></i>
             <NavLink

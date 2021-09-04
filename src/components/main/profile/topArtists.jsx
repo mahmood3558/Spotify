@@ -2,20 +2,21 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import Context from "../../../context/context";
-import { followedArtists } from "../../../services/service";
 
-const FollowedArtists = () => {
-  const [getFollowedArtists, setFollowedArtists] = React.useState([]);
+import { topArtists } from "../../../services/service";
+
+const TopArtists = () => {
+  const [getTopArtists, setTopArtists] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
 
   const token = async () => {
     try {
-      const get = await followedArtists();
-      console.log("FollowedArtists");
-      console.log(get);
-      console.log("FollowedArtists");
-      setFollowedArtists(get.data.artists.items);
+      const get = await topArtists();
+      console.log("TopArtists");
+      console.log(get.data.items);
+      console.log("TopArtists");
+      setTopArtists(get.data.items);
     } catch (e) {
       console.error(e);
     }
@@ -27,28 +28,32 @@ const FollowedArtists = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Followed Artists</h3>
+      <h3 className="text-header">Your Top Artists This Month</h3>
       <div className="container">
         <div className="row">
-          {getFollowedArtists.map((followedArtist) => {
+          {getTopArtists.map((topArtists) => {
             return (
               <div className="col-lg-2">
                 <NavLink
                   to="/artist"
                   className="link"
-                  onClick={() => context.handleArtistId(followedArtist.id)}
+                  onClick={() => context.handleArtistId(topArtists.id)}
                 >
                   <div id="services" className="cards2">
                     <div className="card">
                       <div className="card-image">
                         <img
                           className="img-fluid round-img"
-                          src={followedArtist.images[0].url}
+                          src={topArtists.images[0].url}
                           alt="alternative"
                         />
                       </div>
                       <div>
-                        <h3 className="">{followedArtist.name}</h3>
+                        <h3 className="">
+                          <NavLink to="/artist" className="link">
+                            {topArtists.name}
+                          </NavLink>
+                        </h3>
                         {/* <p className="">{topTrack.artists[0].name}</p> */}
                       </div>
                     </div>
@@ -63,4 +68,4 @@ const FollowedArtists = () => {
   );
 };
 
-export default FollowedArtists;
+export default TopArtists;

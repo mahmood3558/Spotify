@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 
+import Context from "../../../context/context";
 import { savedAlbums } from "../../../services/service";
 
 const SavedAlbums = () => {
   const [getSavedAlbums, setSavedAlbums] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
+  const context = useContext(Context);
 
   const token = async () => {
     try {
@@ -41,7 +44,16 @@ const SavedAlbums = () => {
                     </div>
                     <div>
                       <h3 className="">{savedAlbum.album.name}</h3>
-                      <p className="">{savedAlbum.album.artists[0].name}</p>
+                      {/* <p className="">{savedAlbum.album.artists[0].name}</p> */}
+                      <NavLink
+                        to="/artist"
+                        className="link"
+                        onClick={() =>
+                          context.handleArtistId(savedAlbum.album.artists[0].id)
+                        }
+                      >
+                        {savedAlbum.album.artists[0].name}
+                      </NavLink>
                     </div>
                   </div>
                 </div>

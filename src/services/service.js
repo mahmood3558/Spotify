@@ -26,6 +26,10 @@ export const recentlyPlayedTracks = () => {
   return http.get(`${config.spotify}/v1/me/player/recently-played?limit=12`);
 };
 
+export const currentPlayback = () => {
+  return http.get(`${config.spotify}/v1/me/player`);
+};
+
 //search
 export const search = (searchWord) => {
   return http.get(
@@ -57,18 +61,22 @@ export const playlists = () => {
 
 //Artist
 export const artist = (artistsId) => {
-  const id = "06HL4z0CvFAxyc27GXpf02";
-  return http.get(`${config.spotify}/v1/artists/${id}`);
+  // const id = "06HL4z0CvFAxyc27GXpf02";
+  return http.get(`${config.spotify}/v1/artists/${artistsId}`);
 };
 
 export const artistAlbums = (artistsId) => {
-  const id = "06HL4z0CvFAxyc27GXpf02";
-  return http.get(`${config.spotify}/v1/artists/${id}/albums`);
+  // const id = "06HL4z0CvFAxyc27GXpf02";
+  return http.get(
+    `${config.spotify}/v1/artists/${artistsId}/albums?include_groups=album%2Csingle%2Ccompilation%2Cappears_on&market=ES&limit=18&offset=3`
+  );
 };
 
 export const artistTopTracks = (artistsId) => {
-  const id = "06HL4z0CvFAxyc27GXpf02";
-  return http.get(`${config.spotify}/v1/artists/${id}/top-tracks?market=us`);
+  // const id = "06HL4z0CvFAxyc27GXpf02";
+  return http.get(
+    `${config.spotify}/v1/artists/${artistsId}/top-tracks?market=us`
+  );
 };
 /////////////////////////////////////////////////////////////////////////////
 

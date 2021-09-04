@@ -1,7 +1,7 @@
 import FeaturedPlaylists from "./featuredPlaylists";
 import NewReleases from "./newReleases";
 import RecentlyPlayedTracks from "./recentlyPlayedTracks";
-import TopArtists from "./topArtists";
+// import TopArtists from "../profile/topArtists";
 import TopTracks from "./topTracks";
 
 const home = () => {
@@ -13,10 +13,10 @@ const home = () => {
       <NewReleases></NewReleases>
       <h3 className="text-header">Featured Playlists</h3>
       <FeaturedPlaylists></FeaturedPlaylists>
-      <h3 className="text-header">Top Tracks</h3>
+      <h3 className="text-header">Your Top Tracks</h3>
       <TopTracks></TopTracks>
-      <h3 className="text-header">Top Artists</h3>
-      <TopArtists></TopArtists>
+      {/* <h3 className="text-header">Top Artists</h3>
+      <TopArtists></TopArtists> */}
     </div>
   );
 };

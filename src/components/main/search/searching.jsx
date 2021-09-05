@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { search } from "../../../services/service";
-import Categories from "../search/categories";
+import Categories from "../categories/categories";
 import Context from "../../../context/context";
 
 const Searching = () => {
-  const [getSearch, setSearch] = React.useState([]);
-  const [getTracksSearch, setTracksSearch] = React.useState([]);
-  const [getAlbumsSearch, setAlbumsSearch] = React.useState([]);
-  const [getArtistsSearch, setArtistsSearch] = React.useState([]);
-  const [getPlaylistsSearch, setPlaylistsSearch] = React.useState([]);
-  const [getEpisodeSearch, setEpisodeSearch] = React.useState([]);
-  let [showCategories, setShowCategories] = React.useState(true);
+  const [getSearch, setSearch] = useState([]);
+  const [getTracksSearch, setTracksSearch] = useState([]);
+  const [getAlbumsSearch, setAlbumsSearch] = useState([]);
+  const [getArtistsSearch, setArtistsSearch] = useState([]);
+  const [getPlaylistsSearch, setPlaylistsSearch] = useState([]);
+  const [getEpisodeSearch, setEpisodeSearch] = useState([]);
+  const [showCategories, setShowCategories] = useState(true);
 
   const context = useContext(Context);
 
@@ -52,7 +52,10 @@ const Searching = () => {
                 return (
                   <div className="col-lg-2">
                     <div id="services" className="cards">
-                      <div className="card">
+                      <div
+                        className="card"
+                        onClick={() => context.handlePlayerId(track.album.uri)}
+                      >
                         <div className="card-image">
                           <img
                             className="img-fluid Square-img"
@@ -93,34 +96,40 @@ const Searching = () => {
               {getAlbumsSearch.map((album) => {
                 return (
                   <div className="col-lg-2">
-                    <div id="services" className="cards">
-                      <div className="card">
-                        <div className="card-image">
-                          <img
-                            className="img-fluid Square-img"
-                            src={
-                              album.images[0] != null
-                                ? album.images[0].url
-                                : "https://cdn0.iconfinder.com/data/icons/neutro-audio/32/album-512.png"
-                            }
-                            alt="alternative"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="">{album.name}</h3>
-                          {/* <p className="">{album.artists[0].name}</p> */}
-                          <NavLink
-                            to="/artist"
-                            className="link"
-                            onClick={() =>
-                              context.handleArtistId(album.artists[0].id)
-                            }
-                          >
-                            {album.artists[0].name}
-                          </NavLink>
+                    <NavLink
+                      to="/album"
+                      className="link"
+                      onClick={() => context.handleAlbumId(album.id)}
+                    >
+                      <div id="services" className="cards">
+                        <div className="card">
+                          <div className="card-image">
+                            <img
+                              className="img-fluid Square-img"
+                              src={
+                                album.images[0] != null
+                                  ? album.images[0].url
+                                  : "https://cdn0.iconfinder.com/data/icons/neutro-audio/32/album-512.png"
+                              }
+                              alt="alternative"
+                            />
+                          </div>
+                          <div>
+                            <h3 className="">{album.name}</h3>
+                            {/* <p className="">{album.artists[0].name}</p> */}
+                            <NavLink
+                              to="/artist"
+                              className="link"
+                              onClick={() =>
+                                context.handleArtistId(album.artists[0].id)
+                              }
+                            >
+                              {album.artists[0].name}
+                            </NavLink>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </NavLink>
                   </div>
                 );
               })}
@@ -172,60 +181,36 @@ const Searching = () => {
               {getPlaylistsSearch.map((playlist) => {
                 return (
                   <div className="col-lg-2">
-                    <div id="services" className="cards">
-                      <div className="card">
-                        <div className="card-image">
-                          <img
-                            className="img-fluid Square-img"
-                            src={
-                              playlist.images[0] != null
-                                ? playlist.images[0].url
-                                : "https://download.services.iconscout.com/download?name=music-album&download=1&url=https%3A%2F%2Fd1b1fjiwh8olf2.cloudfront.net%2Ficon%2Ffree%2Fpng-512%2F475066.png%3Ftoken%3DeyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkMWIxZmppd2g4b2xmMi5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTYzMDYyNzIwMCwicSI6bnVsbCwiaWF0IjoxNjMwMzk2MjIzfQ__.4e5e7d734ce9ecba9d94de0517c37de235ca452ae5395bc41d652458d1663fcd&width=512&height=512"
-                            }
-                            alt="alternative"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="">{playlist.name}</h3>
-                          <p className="">{playlist.owner.display_name}</p>
+                    <NavLink
+                      to="/playListTracks"
+                      className="link"
+                      onClick={() => context.handlePlaylistId(playlist.id)}
+                    >
+                      <div id="services" className="cards">
+                        <div className="card">
+                          <div className="card-image">
+                            <img
+                              className="img-fluid Square-img"
+                              src={
+                                playlist.images[0] != null
+                                  ? playlist.images[0].url
+                                  : "https://download.services.iconscout.com/download?name=music-album&download=1&url=https%3A%2F%2Fd1b1fjiwh8olf2.cloudfront.net%2Ficon%2Ffree%2Fpng-512%2F475066.png%3Ftoken%3DeyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkMWIxZmppd2g4b2xmMi5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTYzMDYyNzIwMCwicSI6bnVsbCwiaWF0IjoxNjMwMzk2MjIzfQ__.4e5e7d734ce9ecba9d94de0517c37de235ca452ae5395bc41d652458d1663fcd&width=512&height=512"
+                              }
+                              alt="alternative"
+                            />
+                          </div>
+                          <div>
+                            <h3 className="">{playlist.name}</h3>
+                            <p className="">{playlist.owner.display_name}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </NavLink>
                   </div>
                 );
               })}
             </div>
           </div>
-
-          {/* search in Episode */}
-          {/* <div className="container">
-        <div className="row">
-          <h2 className="text-header">Episode</h2>
-          {getEpisodeSearch.map((episode) => {
-            if (episode != null) {
-              return (
-                <div className="col-lg-2">
-                  <div id="services" className="cards">
-                    <div className="card">
-                      <div className="card-image">
-                        <img
-                          className="img-fluid"
-                          src={episode.images[0].url}
-                          alt="alternative"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-break">{episode.name}</h3>
-                        <p className="">{episode.owner.display_name}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-          })}
-        </div>
-      </div> */}
         </div>
       );
     }

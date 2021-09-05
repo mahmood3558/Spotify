@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import Context from "../../../context/context";
@@ -6,23 +6,23 @@ import Context from "../../../context/context";
 import { recentlyPlayedTracks } from "../../../services/service";
 
 const RecentlyPlayedTracks = () => {
-  const [getRecentlyPlayedTracks, setRecentlyPlayedTracks] = React.useState([]);
+  const [getRecentlyPlayedTracks, setRecentlyPlayedTracks] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
 
   const token = async () => {
     try {
       const get = await recentlyPlayedTracks();
-      console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
-      console.log(get.data.items);
-      console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
+      // console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
+      // console.log(get.data.items);
+      // console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
       setRecentlyPlayedTracks(get.data.items);
     } catch (e) {
       console.error(e);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     token();
   }, []);
 

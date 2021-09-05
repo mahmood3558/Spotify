@@ -20,9 +20,9 @@ const TopTracks = () => {
   const token = async () => {
     try {
       const get = await artistTopTracks(context.artistId);
-      console.log("artistTopTrackssssssssssssssssssssssssssss");
-      console.log(get);
-      console.log("artistTopTracksssssssssssssssssssssssssssss");
+      // console.log("artistTopTrackssssssssssssssssssssssssssss");
+      // console.log(get);
+      // console.log("artistTopTracksssssssssssssssssssssssssssss");
       setArtistTopTracks(get.data.tracks);
     } catch (e) {
       console.error(e);
@@ -41,7 +41,10 @@ const TopTracks = () => {
         return (
           <div className="container ">
             <div className="row  song-list">
-              <div className="col-1">
+              <div
+                className="col-1"
+                onClick={() => context.handlePlayerId(artistTopTrack.uri)}
+              >
                 <div className="img-player">
                   <img
                     className="song-img"

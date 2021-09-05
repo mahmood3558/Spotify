@@ -12,9 +12,9 @@ const NewReleases = () => {
   const token = async () => {
     try {
       const get = await newReleases();
-      console.log("newReleasessssssssssssss");
-      console.log(get.data.albums.items);
-      console.log("newReleasessssssssssssssss");
+      // console.log("newReleasessssssssssssss");
+      // console.log(get.data.albums.items);
+      // console.log("newReleasessssssssssssssss");
       setNewReleases(get.data.albums.items);
     } catch (e) {
       console.error(e);
@@ -32,31 +32,37 @@ const NewReleases = () => {
           {getNewReleases.map((newRelease) => {
             return (
               <div className="col-lg-2">
-                <div id="services" className="cards">
-                  <div className="card">
-                    <div className="card-image">
-                      <img
-                        className="img-fluid"
-                        src={newRelease.images[0].url}
-                        alt="alternative"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="">{newRelease.name}</h3>
-                      <NavLink
-                        to="/artist"
-                        className="link"
-                        onClick={() =>
-                          context.handleArtistId(newRelease.artists[0].id)
-                        }
-                      >
-                        {newRelease.artists[0].name}
-                      </NavLink>
-                      {/* <p className="">{newRelease.artists[0].name}</p> */}
-                      {/* <i className="fa fa-play-circle play-icon"></i> */}
+                <NavLink
+                  to="/album"
+                  className="link"
+                  onClick={() => context.handleAlbumId(newRelease.id)}
+                >
+                  <div id="services" className="cards">
+                    <div className="card">
+                      <div className="card-image">
+                        <img
+                          className="img-fluid"
+                          src={newRelease.images[0].url}
+                          alt="alternative"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="">{newRelease.name}</h3>
+                        <NavLink
+                          to="/artist"
+                          className="link"
+                          onClick={() =>
+                            context.handleArtistId(newRelease.artists[0].id)
+                          }
+                        >
+                          {newRelease.artists[0].name}
+                        </NavLink>
+                        {/* <p className="">{newRelease.artists[0].name}</p> */}
+                        {/* <i className="fa fa-play-circle play-icon"></i> */}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </NavLink>
               </div>
             );
           })}

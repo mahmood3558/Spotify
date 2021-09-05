@@ -12,9 +12,9 @@ const TopTracks = () => {
   const token = async () => {
     try {
       const get = await topTracks();
-      console.log("TopTracks");
-      console.log(get.data.items);
-      console.log("TopTracks");
+      // console.log("TopTracks");
+      // console.log(get.data.items);
+      // console.log("TopTracks");
       setTopTracks(get.data.items);
     } catch (e) {
       console.error(e);
@@ -33,7 +33,10 @@ const TopTracks = () => {
             return (
               <div className="col-lg-2">
                 <div id="services" className="cards">
-                  <div className="card">
+                  <div
+                    className="card"
+                    onClick={() => context.handlePlayerId(topTrack.album.uri)}
+                  >
                     <div className="card-image">
                       <img
                         className="img-fluid"

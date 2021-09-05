@@ -12,9 +12,9 @@ const FollowedArtists = () => {
   const token = async () => {
     try {
       const get = await followedArtists();
-      console.log("FollowedArtists");
-      console.log(get);
-      console.log("FollowedArtists");
+      // console.log("FollowedArtists");
+      // console.log(get);
+      // console.log("FollowedArtists");
       setFollowedArtists(get.data.artists.items);
     } catch (e) {
       console.error(e);

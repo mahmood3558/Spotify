@@ -851,6 +851,7 @@ body {
 }
 
 .song-p {
+  padding-top: 30px;
   margin: 12px;
   font-size: 14px !important;
   text-align: left;
@@ -932,7 +933,7 @@ body {
   z-index: 10;
 }
 
-.mainn {
+.main {
   height: 89% !important;
 }
 
@@ -993,4 +994,10 @@ body {
   color: #ffffff;
   font-size: 18px;
   padding-top: 25px;
+}
+
+.playlist-img .album-img {
+  height: 150px !important;
+  width: 150px !important;
+  border-radius: 25px !important;
 }

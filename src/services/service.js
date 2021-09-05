@@ -41,6 +41,12 @@ export const categories = () => {
   return http.get(`${config.spotify}/v1/browse/categories`);
 };
 
+export const categoryplaylists = (categorieId) => {
+  return http.get(
+    `${config.spotify}/v1/browse/categories/${categorieId}/playlists?limit=24&offset=2`
+  );
+};
+
 //Lib
 export const followedArtists = () => {
   return http.get(`${config.spotify}/v1/me/following?type=artist`);
@@ -59,6 +65,14 @@ export const playlists = () => {
   return http.get(`${config.spotify}/v1/me/playlists`);
 };
 
+export const playlistTracks = (playlist) => {
+  return http.get(`${config.spotify}/v1/playlists/${playlist}`);
+};
+
+export const playlistCoverImage = (playlist) => {
+  return http.get(`${config.spotify}/v1/playlists/${playlist}/images`);
+};
+
 //Artist
 export const artist = (artistsId) => {
   // const id = "06HL4z0CvFAxyc27GXpf02";
@@ -68,7 +82,7 @@ export const artist = (artistsId) => {
 export const artistAlbums = (artistsId) => {
   // const id = "06HL4z0CvFAxyc27GXpf02";
   return http.get(
-    `${config.spotify}/v1/artists/${artistsId}/albums?include_groups=album%2Csingle%2Ccompilation%2Cappears_on&market=ES&limit=18&offset=3`
+    `${config.spotify}/v1/artists/${artistsId}/albums?include_groups=album%2Csingle%2Ccompilation%2Cappears_on&market=ES&limit=18&offset=1`
   );
 };
 
@@ -78,6 +92,18 @@ export const artistTopTracks = (artistsId) => {
     `${config.spotify}/v1/artists/${artistsId}/top-tracks?market=us`
   );
 };
+
+//Album
+export const album = (albumId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.get(`${config.spotify}/v1/albums/${albumId}`);
+};
+
+export const albumTracks = (albumId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.get(`${config.spotify}/v1/albums/${albumId}/tracks`);
+};
+
 /////////////////////////////////////////////////////////////////////////////
 
 export const loginUser = (user) => {

@@ -1,4 +1,4 @@
-import Categories from "../search/categories";
+import Categories from "../categories/categories";
 import Searching from "./searching";
 
 const Search = () => {

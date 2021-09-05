@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { likedSonge } from "../../../services/service";
 import Context from "../../../context/context";
 
 const LikedSonge = () => {
-  const [getLikedSonges, setLikedSonges] = React.useState([]);
+  const [getLikedSonges, setLikedSonges] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
 
@@ -20,16 +20,16 @@ const LikedSonge = () => {
   const token = async () => {
     try {
       const get = await likedSonge();
-      console.log("LikedSongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-      console.log(get);
-      console.log("LikedSongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+      // console.log("LikedSongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+      // console.log(get);
+      // console.log("LikedSongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       setLikedSonges(get.data.items);
     } catch (e) {
       console.error(e);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     token();
   }, []);
 
@@ -41,7 +41,10 @@ const LikedSonge = () => {
         return (
           <div className="container ">
             <div className="row  song-list">
-              <div className="col-1">
+              <div
+                className="col-1"
+                onClick={() => context.handlePlayerId(likedSonge.track.uri)}
+              >
                 <div className="img-player">
                   <img
                     className="song-img "

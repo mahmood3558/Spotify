@@ -5,7 +5,7 @@ import Player from "./player/player";
 const spotify = () => {
   return (
     <div>
-      <div className="row mainn">
+      <div className="row main">
         <div className="col-2">
           <Navbar className="col-lg-4 col-md-3 col-sm-6 col-xs-12 pull-right"></Navbar>
         </div>

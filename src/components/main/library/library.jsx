@@ -1,7 +1,7 @@
 import { Tabs, Tab } from "react-bootstrap";
 
 import FollowedArtists from "./followedArtists";
-import Playlist from "../playList/playList";
+import Playlists from "../playList/playLists";
 import SavedAlbums from "./savedAlbums";
 import LikedSonge from "../playList/likedSonge";
 
@@ -17,7 +17,7 @@ const library = () => {
           <SavedAlbums></SavedAlbums>
         </Tab>
         <Tab eventKey="Playlist" title="Playlist" bsClass="col">
-          <Playlist></Playlist>
+          <Playlists></Playlists>
         </Tab>
         <Tab eventKey="Artists" title="Artists" bsClass="col">
           <FollowedArtists></FollowedArtists>

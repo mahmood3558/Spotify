@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { profile } from "../../../services/service";
 import LikedSonge from "../playList/likedSonge";
-import Playlist from "../playList/playList";
+import Playlists from "../playList/playLists";
 import TopArtists from "./topArtists";
 
 const ProfilePreview = () => {
-  const [getProfile, setProfile] = React.useState([]);
-  const [getimg, setimg] = React.useState([]);
+  const [getProfile, setProfile] = useState([]);
+  const [getimg, setimg] = useState([]);
 
   const token = async () => {
     try {
       const get = await profile();
-      console.log("get.data.imagesssssssssssssssssssss");
-      console.log(get.data.images);
-      console.log("get.data.imagesssssssssssssssssssssss");
+      // console.log("get.data.imagesssssssssssssssssssss");
+      // console.log(get.data.images);
+      // console.log("get.data.imagesssssssssssssssssssssss");
       setProfile(get.data);
       setimg(get.data.images[0]);
     } catch (e) {
@@ -22,7 +22,7 @@ const ProfilePreview = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     token();
   }, []);
 
@@ -42,7 +42,7 @@ const ProfilePreview = () => {
         </div>
       </div>
       <LikedSonge></LikedSonge>
-      <Playlist></Playlist>
+      <Playlists></Playlists>
       <TopArtists></TopArtists>
     </div>
   );

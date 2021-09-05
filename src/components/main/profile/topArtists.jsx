@@ -13,9 +13,9 @@ const TopArtists = () => {
   const token = async () => {
     try {
       const get = await topArtists();
-      console.log("TopArtists");
-      console.log(get.data.items);
-      console.log("TopArtists");
+      // console.log("TopArtists");
+      // console.log(get.data.items);
+      // console.log("TopArtists");
       setTopArtists(get.data.items);
     } catch (e) {
       console.error(e);

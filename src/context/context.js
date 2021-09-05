@@ -5,10 +5,12 @@ const Context = createContext({
   artistId: "",
   playerId: "",
   playlistId: "",
+  categorieId: "",
   handleAlbumId: () => {},
   handleArtistId: () => {},
   handlePlayerId: () => {},
   handlePlaylistId: () => {},
+  handleCategorieId: () => {},
 });
 
 export default Context;

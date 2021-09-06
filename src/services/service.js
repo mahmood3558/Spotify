@@ -33,7 +33,7 @@ export const currentPlayback = () => {
 //search
 export const search = (searchWord) => {
   return http.get(
-    `${config.spotify}/v1/search?q=${searchWord}&type=track%2Cartist%2Calbum%2Cplaylist%2Cepisode&market=US&limit=12`
+    `${config.spotify}/v1/search?q=${searchWord}&type=track%2Cartist%2Calbum%2Cplaylist%2Cepisode&market=US&limit=12&offset=0`
   );
 };
 
@@ -102,6 +102,22 @@ export const album = (albumId) => {
 export const albumTracks = (albumId) => {
   // const id = "4aawyAB9vmqN3uQ7FjRGTy";
   return http.get(`${config.spotify}/v1/albums/${albumId}/tracks`);
+};
+
+//Like Songe
+export const checkLike = (songeId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.get(`${config.spotify}/v1/me/tracks/contains?ids=${songeId}`);
+};
+
+export const deleteLike = (songeId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.delete(`${config.spotify}/v1/me/tracks?ids=${songeId}`);
+};
+
+export const like = (songeId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.put(`${config.spotify}/v1/me/tracks?ids=${songeId}`);
 };
 
 /////////////////////////////////////////////////////////////////////////////

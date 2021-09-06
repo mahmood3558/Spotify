@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { search } from "../../../services/service";
+import { search, like } from "../../../services/service";
 import Categories from "../categories/categories";
 import Context from "../../../context/context";
 
@@ -16,13 +16,21 @@ const Searching = () => {
 
   const context = useContext(Context);
 
+  const millisToMinutesAndSeconds = (millis) => {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+
+    //If seconds is less than 10 put a zero in front.
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   const searching = async (event) => {
     event.preventDefault();
     setShowCategories(false);
     const Search = getSearch;
     try {
       const get = await search(Search);
-      console.log(get.data.artists.items);
+      // console.log(get.data.artists.items);
       setTracksSearch(get.data.tracks.items);
       setAlbumsSearch(get.data.albums.items);
       setArtistsSearch(get.data.artists.items);
@@ -45,49 +53,83 @@ const Searching = () => {
       return (
         <div>
           {/* search in Tracks */}
-          <div className="container">
-            <div className="row">
-              <h2 className="text-header">Track</h2>
-              {getTracksSearch.map((track) => {
-                return (
-                  <div className="col-lg-2">
-                    <div id="services" className="cards">
-                      <div
-                        className="card"
-                        onClick={() => context.handlePlayerId(track.album.uri)}
-                      >
-                        <div className="card-image">
-                          <img
-                            className="img-fluid Square-img"
-                            // src={track.album.images[0].url}
-                            src={
-                              track.album.images[0] != null
-                                ? track.album.images[0].url
-                                : "https://download.services.iconscout.com/download?name=audio-track&download=1&url=https%3A%2F%2Fd1b1fjiwh8olf2.cloudfront.net%2Ficon%2Ffree%2Fpng-512%2F31710.png%3Ftoken%3DeyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkMWIxZmppd2g4b2xmMi5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTYzMDYyNzIwMCwicSI6bnVsbCwiaWF0IjoxNjMwMzk2NjU0fQ__.940492cb924272ebfe1ded0b81c68599f920d7c1a8548db6e51db9ed2d852ab6&width=512&height=512"
-                            }
-                            alt="alternative"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="">{track.album.name}</h3>
-                          {/* <p className="">{track.album.artists[0].name}</p> */}
-                          <NavLink
-                            to="/artist"
-                            className="link"
-                            onClick={() =>
-                              context.handleArtistId(track.album.artists[0].id)
-                            }
-                          >
-                            {track.album.artists[0].name}
-                          </NavLink>
-                        </div>
+
+          <h2 className="text-header">Track</h2>
+          {getTracksSearch.map((track) => {
+            return (
+              <div className="container">
+                <div className="row song-list">
+                  <div
+                    className="col-1"
+                    onClick={() => context.handlePlayerId(track.uri)}
+                  >
+                    <div className="img-player">
+                      <img
+                        className="song-img "
+                        // src={likedSonge.track.album.images[0].url}
+                        src={
+                          track.album.images[0] != null
+                            ? track.album.images[0].url
+                            : "https://download.services.iconscout.com/download?name=audio-track&download=1&url=https%3A%2F%2Fd1b1fjiwh8olf2.cloudfront.net%2Ficon%2Ffree%2Fpng-512%2F31710.png%3Ftoken%3DeyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkMWIxZmppd2g4b2xmMi5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTYzMDYyNzIwMCwicSI6bnVsbCwiaWF0IjoxNjMwMzk2NjU0fQ__.940492cb924272ebfe1ded0b81c68599f920d7c1a8548db6e51db9ed2d852ab6&width=512&height=512"
+                        }
+                        alt="alternative"
+                      />
+                      <div className="overlay icon">
+                        <i className="fa fa-play-circle "></i>
+                      </div>
+                    </div>
+                    {/* <img
+                  className="song-img"
+                  src={likedSonge.track.album.images[0].url}
+                  alt="alternative"
+                /> */}
+                  </div>
+                  <div className="col-3 ">
+                    <h3 className="song-h3">{track.name}</h3>
+                    {/* <p1>{likedSonge.track.artists[0].name}</p1> */}
+                    <NavLink
+                      to="/artist"
+                      className="link song-p"
+                      onClick={() =>
+                        context.handleArtistId(track.artists[0].id)
+                      }
+                    >
+                      {track.artists[0].name}
+                    </NavLink>
+                  </div>
+
+                  <div className="col-5 song-p1">
+                    <NavLink
+                      to="/album"
+                      className="link song-p"
+                      onClick={() => context.handleAlbumId(track.album.id)}
+                    >
+                      {track.album.name}
+                    </NavLink>
+                  </div>
+                  <div className="col-1 ">
+                    <div className="like-icon">
+                      <div className=" icon4">
+                        {/* {checkLike(likedSonge.track.id) ? (
+                      <i className="fa fa-heart "></i>
+                    ) : (
+                      <i className="fa fa-heart-o "></i>
+                    )} */}
+                        <i
+                          className="fa fa-heart-o"
+                          onClick={() => like(track.id)}
+                        ></i>
+                        {/* <i className="fa fa-heart-o "></i> */}
                       </div>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                  <div className="col-1 song-p1">
+                    <h6>{millisToMinutesAndSeconds(track.duration_ms)}</h6>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
 
           {/* search in Albums */}
           <div className="container">

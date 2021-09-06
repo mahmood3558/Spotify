@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-import { likedSonge } from "../../../services/service";
+import { checkLike, likedSonge, deleteLike } from "../../../services/service";
 import Context from "../../../context/context";
 
 const LikedSonge = () => {
@@ -29,8 +29,24 @@ const LikedSonge = () => {
     }
   };
 
+  const check = async (songeId) => {
+    // console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    // console.log(songeId);
+    // console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    // try {
+    //   const get = await checkLike(songeId);
+    //   console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    //   console.log(get);
+    //   console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    //   setLikedSonges(get.data.items);
+    // } catch (e) {
+    //   console.error(e);
+    // }
+  };
+
   useEffect(() => {
     token();
+    // check();
   }, []);
 
   return (
@@ -38,6 +54,9 @@ const LikedSonge = () => {
       <h3 className="text-header">Your Liked Songe</h3>
 
       {getLikedSonges.map((likedSonge) => {
+        // console.log("likedSonge.track.id");
+        // console.log(likedSonge.track.id);
+        // console.log("likedSonge.track.id");
         return (
           <div className="container ">
             <div className="row  song-list">
@@ -74,8 +93,33 @@ const LikedSonge = () => {
                   {likedSonge.track.artists[0].name}
                 </NavLink>
               </div>
-              <div className="col-6 song-p1">
-                <p>{likedSonge.track.album.name}</p>
+
+              <div className="col-5 song-p1">
+                <NavLink
+                  to="/album"
+                  className="link song-p"
+                  onClick={() =>
+                    context.handleAlbumId(likedSonge.track.album.id)
+                  }
+                >
+                  {likedSonge.track.album.name}
+                </NavLink>
+              </div>
+              <div className="col-1 ">
+                <div className="like-icon">
+                  <div className=" icon4">
+                    {/* {checkLike(likedSonge.track.id) ? (
+                      <i className="fa fa-heart "></i>
+                    ) : (
+                      <i className="fa fa-heart-o "></i>
+                    )} */}
+                    <i
+                      className="fa fa-heart"
+                      onClick={() => deleteLike(likedSonge.track.id)}
+                    ></i>
+                    {/* <i className="fa fa-heart-o "></i> */}
+                  </div>
+                </div>
               </div>
               <div className="col-1 song-p1">
                 <h6>

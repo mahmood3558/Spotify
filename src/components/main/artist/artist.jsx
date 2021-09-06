@@ -21,7 +21,7 @@ const ShowArtist = () => {
       const get = await artist(context.artistId);
       // console.log("ShowArtistttttttttttttttttttttttttttttttttt");
       // console.log(get.data);
-      // console.log("ShowArtisttttttttttttttttttttttttttttttttttt");
+      // console.log("ShowArtistttttttttttttttttttttttttttttttttt");
       setArtist(get.data);
       setImg(get.data.images[0]);
       setFollowers(get.data.followers);
@@ -36,7 +36,7 @@ const ShowArtist = () => {
 
   return (
     <div>
-      <div className="d-flex align-items-center px-4 py-5 profile">
+      <div className="d-flex align-items-center px-4 py-5 profile ">
         <div>
           <img
             className="rounded-pill img-fluid"
@@ -51,7 +51,21 @@ const ShowArtist = () => {
         </div>
       </div>
       <div>
+        <div className="row  ">
+          <div className="col-2">
+            <h3 className="text-header">Top Tracks</h3>
+          </div>
+          <div className="col-1">
+            <div className=" icon2">
+              <i
+                className="fa fa-play-circle "
+                onClick={() => context.handlePlayerId(getArtist.uri)}
+              ></i>
+            </div>
+          </div>
+        </div>
         <TopTracks></TopTracks>
+        <h3 className="text-header">Albums</h3>
         <Albums></Albums>
       </div>
     </div>

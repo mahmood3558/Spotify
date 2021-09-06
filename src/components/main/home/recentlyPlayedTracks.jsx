@@ -13,9 +13,9 @@ const RecentlyPlayedTracks = () => {
   const token = async () => {
     try {
       const get = await recentlyPlayedTracks();
-      // console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
-      // console.log(get.data.items);
-      // console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
+      console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
+      console.log(get.data.items);
+      console.log("RecentlyPlayedTracksSSSSSSSSSSSSSSSSSS");
       setRecentlyPlayedTracks(get.data.items);
     } catch (e) {
       console.error(e);
@@ -47,27 +47,25 @@ const RecentlyPlayedTracks = () => {
                           src={recentlyPlayedTracks.track.album.images[0].url}
                           alt="alternative"
                         />
-                        <div className="overlay">
-                          <div className=" icon">
-                            <i className="fa fa-play-circle "></i>
-                          </div>
+                        <div className="overlay icon3">
+                          <i className="fa fa-play-circle "></i>
                         </div>
                       </div>
                     </div>
                     <div>
-                      <h3 className="">
-                        {recentlyPlayedTracks.track.album.name}
-                      </h3>
+                      <h3 className="">{recentlyPlayedTracks.track.name}</h3>
                       <NavLink
-                        to="/artist"
-                        className="link"
+                        to="/album"
+                        className="link2 "
                         onClick={() =>
-                          context.handleArtistId(
-                            recentlyPlayedTracks.track.album.artists[0].id
+                          context.handleAlbumId(
+                            recentlyPlayedTracks.track.album.id
                           )
                         }
                       >
-                        {recentlyPlayedTracks.track.album.artists[0].name}
+                        <p className="link2">
+                          {recentlyPlayedTracks.track.album.name}
+                        </p>
                       </NavLink>
                       {/* <i className="fa fa-play-circle play-icon"></i> */}
                     </div>

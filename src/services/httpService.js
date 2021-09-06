@@ -3,6 +3,8 @@ import axios from "axios";
 import hash from "./setToken/hash";
 
 axios.defaults.headers.get["Authorization"] = `Bearer ${hash.access_token}`;
+axios.defaults.headers.delete["Authorization"] = `Bearer ${hash.access_token}`;
+axios.defaults.headers.put["Authorization"] = `Bearer ${hash.access_token}`;
 
 // ['Accept'] = "application/json"["Content-Type"]="Content-Type"
 

@@ -6,8 +6,10 @@
   "redirectUri": "http://localhost:3000/home",
   "scopes": [
     "user-top-read",
+    "user-library-modify",
     "user-read-currently-playing",
     "user-read-playback-state",
-    "user-follow-read"
+    "user-follow-read",
+    "user-library-read"
   ]
 }

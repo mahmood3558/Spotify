@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import Context from "../../../context/context";
-import { album, albumTracks } from "../../../services/service";
+import { album, albumTracks, checkLike } from "../../../services/service";
 
 const Album = () => {
   const [getAlbumTracks, setAlbumTracks] = useState([]);
@@ -67,12 +67,25 @@ const Album = () => {
           <p className="fs-6 mb-0">{getArtist.name}</p>
         </div>
       </div>
-      <div>
-        <h3 className="text-header">Tracks</h3>
 
-        {getAlbumTracks.map((albumTrack) => {
-          return (
-            <div className="container ">
+      <div>
+        <div className="row  ">
+          <div className="col-1">
+            <h3 className="text-header">Tracks</h3>
+          </div>
+          <div className="col-1">
+            <div className=" icon2">
+              <i
+                className="fa fa-play-circle "
+                onClick={() => context.handlePlayerId(getAlbum.uri)}
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div className="container ">
+          {getAlbumTracks.map((albumTrack) => {
+            return (
               <div className="row  song-list">
                 <div
                   className="col-1"
@@ -101,16 +114,29 @@ const Album = () => {
                     {albumTrack.artists[0].name}
                   </NavLink>
                 </div>
-                <div className="col-6 song-p1">
+                <div className="col-5 song-p1">
                   <p>{getArtist.name}</p>
+                </div>
+                <div className="col-1 ">
+                  <div className="like-icon">
+                    <div className=" icon4">
+                      {checkLike(albumTrack.id) ? (
+                        <i className="fa fa-heart-o "></i>
+                      ) : (
+                        <i className="fa fa-heart "></i>
+                      )}
+                      {/* <i className="fa fa-heart "></i> */}
+                      {/* <i className="fa fa-heart-o "></i> */}
+                    </div>
+                  </div>
                 </div>
                 <div className="col-1 song-p1">
                   <h6>{millisToMinutesAndSeconds(albumTrack.duration_ms)}</h6>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

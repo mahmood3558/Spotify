@@ -12,9 +12,9 @@ const TopTracks = () => {
   const token = async () => {
     try {
       const get = await topTracks();
-      // console.log("TopTracks");
-      // console.log(get.data.items);
-      // console.log("TopTracks");
+      console.log("TopTracks");
+      console.log(get.data.items);
+      console.log("TopTracks");
       setTopTracks(get.data.items);
     } catch (e) {
       console.error(e);
@@ -35,25 +35,28 @@ const TopTracks = () => {
                 <div id="services" className="cards">
                   <div
                     className="card"
-                    onClick={() => context.handlePlayerId(topTrack.album.uri)}
+                    onClick={() => context.handlePlayerId(topTrack.uri)}
                   >
                     <div className="card-image">
-                      <img
-                        className="img-fluid"
-                        src={topTrack.album.images[0].url}
-                        alt="alternative"
-                      />
+                      <div className="img-player2">
+                        <img
+                          className="img-fluid"
+                          src={topTrack.album.images[0].url}
+                          alt="alternative"
+                        />
+                        <div className="overlay icon3">
+                          <i className="fa fa-play-circle "></i>
+                        </div>
+                      </div>
                     </div>
                     <div>
-                      <h3 className="">{topTrack.album.name}</h3>
+                      <h3 className="">{topTrack.name}</h3>
                       <NavLink
-                        to="/artist"
-                        className="link"
-                        onClick={() =>
-                          context.handleArtistId(topTrack.artists[0].id)
-                        }
+                        to="/album"
+                        className="link2"
+                        onClick={() => context.handleAlbumId(topTrack.album.id)}
                       >
-                        {topTrack.artists[0].name}
+                        <p className="link2"> {topTrack.album.name}</p>
                       </NavLink>
                       {/* <p className="">{topTrack.artists[0].name}</p> */}
                       {/* <i className="fa fa-play-circle play-icon"></i> */}

@@ -27,8 +27,6 @@ const Albums = () => {
 
   return (
     <div>
-      <h3 className="text-header">Albums</h3>
-
       <div className="container">
         <div className="row">
           {getArtistAlbums.map((artistAlbum) => {

@@ -8,4 +8,16 @@ instal:
  npm i font-awesome 
  npm i react-bootstrap
 
+
+
+
+ npm i @fortawesome/fontawesome-free
+
+
+
+
+
+
+
+
 npm start

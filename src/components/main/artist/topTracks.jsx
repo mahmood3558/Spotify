@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import Context from "../../../context/context";
-import { artistTopTracks } from "../../../services/service";
+import { artistTopTracks, like } from "../../../services/service";
 
 const TopTracks = () => {
   const [getArtistTopTracks, setArtistTopTracks] = useState([]);
@@ -20,9 +20,9 @@ const TopTracks = () => {
   const token = async () => {
     try {
       const get = await artistTopTracks(context.artistId);
-      // console.log("artistTopTrackssssssssssssssssssssssssssss");
-      // console.log(get);
-      // console.log("artistTopTracksssssssssssssssssssssssssssss");
+      console.log("artistTopTrackssssssssssssssssssssssssssss");
+      console.log(get);
+      console.log("artistTopTracksssssssssssssssssssssssssssss");
       setArtistTopTracks(get.data.tracks);
     } catch (e) {
       console.error(e);
@@ -35,8 +35,6 @@ const TopTracks = () => {
 
   return (
     <div>
-      <h3 className="text-header">Top Tracks</h3>
-
       {getArtistTopTracks.map((artistTopTrack) => {
         return (
           <div className="container ">
@@ -69,8 +67,30 @@ const TopTracks = () => {
                   {artistTopTrack.artists[0].name}
                 </NavLink> */}
               </div>
-              <div className="col-6 song-p">
-                <p>{artistTopTrack.album.name}</p>
+              <div className="col-5 song-p">
+                <NavLink
+                  to="/album"
+                  className="link song-p"
+                  onClick={() => context.handleAlbumId(artistTopTrack.album.id)}
+                >
+                  {artistTopTrack.album.name}
+                </NavLink>
+              </div>
+              <div className="col-1 ">
+                <div className="like-icon">
+                  <div className=" icon4">
+                    {/* {checkLike(likedSonge.track.id) ? (
+                      <i className="fa fa-heart "></i>
+                    ) : (
+                      <i className="fa fa-heart-o "></i>
+                    )} */}
+                    <i
+                      className="fa fa-heart-o"
+                      onClick={() => like(artistTopTrack.id)}
+                    ></i>
+                    {/* <i className="fa fa-heart "></i> */}
+                  </div>
+                </div>
               </div>
               <div className="col-1 song-p">
                 <h6>{millisToMinutesAndSeconds(artistTopTrack.duration_ms)}</h6>

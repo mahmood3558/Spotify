@@ -913,6 +913,11 @@ body {
   color: rgb(255, 255, 255);
 }
 
+.img-player2:hover .overlay {
+  opacity: 10;
+  color: rgb(255, 255, 255);
+}
+
 .icon {
   cursor: pointer;
   color: white !important;
@@ -925,7 +930,39 @@ body {
   text-align: center;
 }
 
+.icon2 {
+  cursor: pointer;
+  color: white !important;
+  font-size: 45px;
+  position: absolute;
+  top: 27%;
+  left: 28%;
+}
+
+.icon3 {
+  cursor: pointer;
+  color: white !important;
+  font-size: 85px;
+  position: absolute;
+  top: 8%;
+  left: 35%;
+}
+
+.icon4 {
+  cursor: pointer;
+  color: white !important;
+  font-size: 25px;
+  position: absolute;
+  /* padding-top: 30px; */
+  margin: 15px;
+}
+
+.fa-play-circle:hover {
+  color: #1db954;
+}
+
 .player {
+  display: block;
   position: fixed;
   height: 11% !important;
   bottom: 0;
@@ -934,7 +971,7 @@ body {
 }
 
 .main {
-  height: 89% !important;
+  height: 100% !important;
 }
 
 .nav-z-index {
@@ -942,18 +979,32 @@ body {
 }
 
 .link {
-  margin: 13px;
+  margin: 13px !important;
   font-size: 15px !important;
-  margin-bottom: 0.75rem;
-  text-align: left;
-  color: #ffffff;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  margin-bottom: 0.75rem !important;
+  text-align: left !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.link2 {
+  font-size: 15px !important;
+  margin-bottom: 0.75rem !important;
+  text-align: left !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 .link:hover {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+.link2:hover {
+  color: #ffffff !important;
 }
 
 .profile img {
@@ -1000,4 +1051,15 @@ body {
   height: 150px !important;
   width: 150px !important;
   border-radius: 25px !important;
+}
+
+.like-icon {
+  position: relative;
+  width: 100%;
+  max-width: 33px;
+  margin-top: 5px;
+}
+.like-icon:hover {
+  opacity: 10;
+  color: rgb(255, 255, 255);
 }

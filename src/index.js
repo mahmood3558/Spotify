@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from "react-router-dom";
+
+import "./i18n/i18n";
 
 // import './index.css';
 import App from "./containers/App";
 import GlobalState from "./containers/GlobalState";
+import "react-toastify/dist/ReactToastify.css";
 
 // import reportWebVitals from './reportWebVitals';
 

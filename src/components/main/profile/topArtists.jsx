@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import Context from "../../../context/context";
 
 import { topArtists } from "../../../services/service";
@@ -9,6 +11,8 @@ const TopArtists = () => {
   const [getTopArtists, setTopArtists] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const token = async () => {
     try {
@@ -28,7 +32,7 @@ const TopArtists = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Top Artists This Month</h3>
+      <h3 className="text-header"> {t("topArtists")}</h3>
       <div className="container">
         <div className="row">
           {getTopArtists.map((topArtists) => {

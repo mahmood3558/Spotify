@@ -1,5 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { useTranslation } from "react-i18next";
 
 import { playlistTracks, like } from "../../../services/service";
 import Context from "../../../context/context";
@@ -10,6 +13,8 @@ const PlaylistTracks = () => {
   const [getPlaylistTracks, setplaylistTracks] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const millisToMinutesAndSeconds = (millis) => {
     var minutes = Math.floor(millis / 60000);
@@ -55,10 +60,7 @@ const PlaylistTracks = () => {
         </div>
       </div>
 
-      <div className="row  ">
-        <div className="col-1">
-          <h3 className="text-header">Tracks</h3>
-        </div>
+      <div className="row  listSonge">
         <div className="col-1">
           <div className=" icon2">
             <i
@@ -66,6 +68,9 @@ const PlaylistTracks = () => {
               onClick={() => context.handlePlayerId(getPlaylistName.uri)}
             ></i>
           </div>
+        </div>
+        <div className="col-1">
+          <h3 className="text-header">{t("track")}</h3>
         </div>
       </div>
 
@@ -127,7 +132,25 @@ const PlaylistTracks = () => {
                     )} */}
                     <i
                       className="fa fa-heart-o"
-                      onClick={() => like(playlistTrack.track.id)}
+                      onClick={() => {
+                        like(playlistTrack.track.id);
+                        toast.success(
+                          t("music") +
+                            " '" +
+                            playlistTrack.track.name +
+                            "' " +
+                            t("toastAdd"),
+                          {
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                          }
+                        );
+                      }}
                     ></i>
                     {/* <i className="fa fa-heart "></i> */}
                   </div>

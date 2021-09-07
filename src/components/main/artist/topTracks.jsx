@@ -1,5 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
 import { artistTopTracks, like } from "../../../services/service";
@@ -8,6 +11,8 @@ const TopTracks = () => {
   const [getArtistTopTracks, setArtistTopTracks] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const millisToMinutesAndSeconds = (millis) => {
     var minutes = Math.floor(millis / 60000);
@@ -86,7 +91,25 @@ const TopTracks = () => {
                     )} */}
                     <i
                       className="fa fa-heart-o"
-                      onClick={() => like(artistTopTrack.id)}
+                      onClick={() => {
+                        like(artistTopTrack.id);
+                        toast.success(
+                          t("music") +
+                            " '" +
+                            artistTopTrack.name +
+                            "' " +
+                            t("toastAdd"),
+                          {
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                          }
+                        );
+                      }}
                     ></i>
                     {/* <i className="fa fa-heart "></i> */}
                   </div>

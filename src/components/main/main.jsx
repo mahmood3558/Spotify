@@ -5,7 +5,7 @@ import Library from "./library/library";
 import Search from "./search/search";
 import PlayLists from "./playList/playLists";
 import LikedSonge from "./playList/likedSonge";
-import CreatePlaylist from "./playList/createPlaylist";
+// import CreatePlaylist from "./playList/createPlaylist";
 import Profile from "./profile/profile";
 import ShowArtist from "./artist/artist";
 import Album from "./album/album";
@@ -22,7 +22,7 @@ const main = () => {
         <Route path="/search" component={Search} />
         <Route path="/playList" component={PlayLists} />
         <Route path="/likedSonge" component={LikedSonge} />
-        <Route path="/createPlaylist" component={CreatePlaylist} />
+        {/* <Route path="/createPlaylist" component={CreatePlaylist} /> */}
         <Route path="/profile" component={Profile} />
         <Route path="/artist" component={ShowArtist} />
         <Route path="/album" component={Album} />

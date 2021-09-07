@@ -1,10 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import SpotifyPlayer from "react-spotify-player";
 import Context from "../../context/context";
 
 const Player = () => {
+  let uri = "";
   const context = useContext(Context);
-  const uri = context.playerId;
+  if (context.playerId) {
+    uri = context.playerId;
+  } else {
+    uri = "spotify:track:1p80LdxRV74UKvL8gnD7ky";
+  }
+
   // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
   // console.log(uri);
   // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");

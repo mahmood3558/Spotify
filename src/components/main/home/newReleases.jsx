@@ -50,12 +50,12 @@ const NewReleases = () => {
                         <h3 className="">{newRelease.name}</h3>
                         <NavLink
                           to="/artist"
-                          className="link"
+                          className="link2"
                           onClick={() =>
                             context.handleArtistId(newRelease.artists[0].id)
                           }
                         >
-                          {newRelease.artists[0].name}
+                          <p className="link2">{newRelease.artists[0].name}</p>
                         </NavLink>
                         {/* <p className="">{newRelease.artists[0].name}</p> */}
                         {/* <i className="fa fa-play-circle play-icon"></i> */}

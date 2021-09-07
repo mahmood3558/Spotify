@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import Context from "../../../context/context";
 import { artist } from "../../../services/service";
 import Albums from "./albums";
@@ -15,6 +17,8 @@ const ShowArtist = () => {
   // console.log(context.artistId);
   // console.log("context.geArtistIdddddddddddddddddddddddddddddddd");
   // const [getAlbum, setAlbum] = React.useState([]);
+
+  const { t } = useTranslation();
 
   const token = async () => {
     try {
@@ -36,7 +40,7 @@ const ShowArtist = () => {
 
   return (
     <div>
-      <div className="d-flex align-items-center px-4 py-5 profile ">
+      <div className="d-flex align-items-center px-4 py-5 profile sidebar-header ">
         <div>
           <img
             className="rounded-pill img-fluid"
@@ -47,14 +51,13 @@ const ShowArtist = () => {
         </div>
         <div className="ms-2">
           <h3 className="fs-6 mb-0">{getArtist.name}</h3>
-          <p className="fs-6 mb-0">{getFollowers.total} Follower</p>
+          <p className="fs-6 mb-0">
+            {getFollowers.total} {t("follower")}
+          </p>
         </div>
       </div>
       <div>
-        <div className="row  ">
-          <div className="col-2">
-            <h3 className="text-header">Top Tracks</h3>
-          </div>
+        <div className="row listSonge">
           <div className="col-1">
             <div className=" icon2">
               <i
@@ -63,9 +66,12 @@ const ShowArtist = () => {
               ></i>
             </div>
           </div>
+          <div className="col-2">
+            <h3 className="text-header">{t("artistTopTracks")}</h3>
+          </div>
         </div>
         <TopTracks></TopTracks>
-        <h3 className="text-header">Albums</h3>
+        <h3 className="text-header">{t("albums")}</h3>
         <Albums></Albums>
       </div>
     </div>

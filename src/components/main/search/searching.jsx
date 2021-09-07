@@ -1,5 +1,8 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { useTranslation } from "react-i18next";
 
 import { search, like } from "../../../services/service";
 import Categories from "../categories/categories";
@@ -15,6 +18,8 @@ const Searching = () => {
   const [showCategories, setShowCategories] = useState(true);
 
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const millisToMinutesAndSeconds = (millis) => {
     var minutes = Math.floor(millis / 60000);
@@ -45,7 +50,7 @@ const Searching = () => {
     if (showCategories) {
       return (
         <div>
-          <h3 className="text-header">Categories</h3>
+          <h3 className="text-header"> {t("categories")}</h3>
           <Categories></Categories>
         </div>
       );
@@ -53,8 +58,7 @@ const Searching = () => {
       return (
         <div>
           {/* search in Tracks */}
-
-          <h2 className="text-header">Track</h2>
+          <h2 className="text-header"> {t("track")}</h2>
           {getTracksSearch.map((track) => {
             return (
               <div className="container">
@@ -117,7 +121,25 @@ const Searching = () => {
                     )} */}
                         <i
                           className="fa fa-heart-o"
-                          onClick={() => like(track.id)}
+                          onClick={() => {
+                            like(track.id);
+                            toast.success(
+                              t("music") +
+                                " '" +
+                                track.name +
+                                "' " +
+                                t("toastAdd"),
+                              {
+                                position: "bottom-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                              }
+                            );
+                          }}
                         ></i>
                         {/* <i className="fa fa-heart-o "></i> */}
                       </div>
@@ -134,7 +156,7 @@ const Searching = () => {
           {/* search in Albums */}
           <div className="container">
             <div className="row">
-              <h2 className="text-header">Album</h2>
+              <h2 className="text-header1"> {t("album")}</h2>
               {getAlbumsSearch.map((album) => {
                 return (
                   <div className="col-lg-2">
@@ -166,7 +188,7 @@ const Searching = () => {
                                 context.handleArtistId(album.artists[0].id)
                               }
                             >
-                              {album.artists[0].name}
+                              <p className="link">{album.artists[0].name}</p>
                             </NavLink>
                           </div>
                         </div>
@@ -181,7 +203,7 @@ const Searching = () => {
           {/* search in Artists */}
           <div className="container">
             <div className="row">
-              <h2 className="text-header">Artist</h2>
+              <h2 className="text-header1"> {t("artist")}</h2>
               {getArtistsSearch.map((artist) => {
                 return (
                   <div className="col-lg-2">
@@ -219,7 +241,7 @@ const Searching = () => {
           {/* search in Playlists */}
           <div className="container">
             <div className="row">
-              <h2 className="text-header">Playlists</h2>
+              <h2 className="text-header1"> {t("playlists")}</h2>
               {getPlaylistsSearch.map((playlist) => {
                 return (
                   <div className="col-lg-2">
@@ -266,7 +288,8 @@ const Searching = () => {
     <div>
       <form onSubmit={searching} className="search-bar">
         <input
-          placeholder="Artists, songs, or podcasts"
+          placeholder={t("searchPlaceholder")}
+          // placeholder="Artists, songs, or podcasts"
           value={getSearch}
           type="text"
           name="search"

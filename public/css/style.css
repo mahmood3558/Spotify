@@ -1,4 +1,18 @@
-@import 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet';
+@font-face {
+  font-family: "BYekan";
+  src: url("../fonts/BYekan-webfont.eot") format("eot"),
+    url("../fonts/BYekan-webfont.woff") format("woff"),
+    url("../fonts/BYekan-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+
+  font-family: "Larsseit";
+  src: url("../fonts/Larsseit.eot") format("eot"),
+    url("../fonts/Larsseit.woff") format("woff"),
+    url("../fonts/BYekan-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --dk-gray-100: #f3f4f6;
@@ -14,7 +28,7 @@
   --dk-darker-bg: #2a2b3d;
   --navbar-bg-color: #6f6486;
   --sidebar-bg-color: #090909;
-  --sidebar-width: 250px;
+  /* --sidebar-width: 250px; */
 }
 
 * {
@@ -24,14 +38,18 @@
 }
 
 body {
-  height: 89% !important;
-  font-family: "Inter", sans-serif;
-  font-size: 0.925rem;
+  /* font-family: "Inter", sans-serif; */
+  height: 100% !important;
+  font-family: "BYekan" !important;
   background: #121212 !important;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  word-spacing: -1px;
 }
 
 #wrapper {
-  margin-left: var(--sidebar-width);
+  /* margin-left: var(--sidebar-width); */
   transition: all 0.3s ease-in-out;
 }
 
@@ -44,10 +62,13 @@ body {
 -------------------------------- */
 .sidebar {
   background-color: var(--sidebar-bg-color);
-  width: var(--sidebar-width);
+  width: 250px;
   transition: all 0.3s ease-in-out;
   transform: translateX(0);
-  z-index: 9999999;
+  height: 89%;
+  margin-left: -25px;
+
+  z-index: 5;
 }
 
 .sidebar .close-aside {
@@ -441,6 +462,7 @@ body {
 }
 
 .cards .player {
+  width: 100% !important;
   margin-bottom: 0.25rem;
   color: #484a46;
   font: 800 10.5rem/111rem "Montserrat", sans-serif;
@@ -603,7 +625,7 @@ body {
 
 .login-header {
   background-color: #282c34;
-  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -647,11 +669,19 @@ body {
 }
 
 .text-header {
+  font-size: 30px !important;
+  color: #ffffff !important;
+  margin-top: 15px !important;
+  margin-bottom: 5px !important;
+  margin-left: 20px !important;
+}
+
+.text-header1 {
   font-size: 30px;
   color: #ffffff;
-  margin-top: 13px;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  margin-top: 35px !important;
+  margin-bottom: 5px !important;
+  margin-left: 0px !important;
 }
 
 .play-icon {
@@ -840,10 +870,16 @@ body {
 }
 
 .song-list {
-  border-bottom: 1px solid #2a2b3c;
+  border-bottom: 1px solid #1f212d;
   background-color: #282828;
   padding-top: 4px;
   padding-bottom: 4px;
+}
+.listSonge {
+  border-bottom: 1px solid #15161e !important;
+  background-color: #282828 !important;
+  margin-left: 12px !important;
+  margin-right: 12px !important;
 }
 
 .song-list:hover {
@@ -933,10 +969,10 @@ body {
 .icon2 {
   cursor: pointer;
   color: white !important;
-  font-size: 45px;
+  font-size: 47px;
   position: absolute;
   top: 27%;
-  left: 28%;
+  left: 19%;
 }
 
 .icon3 {
@@ -979,7 +1015,8 @@ body {
 }
 
 .link {
-  margin: 13px !important;
+  margin-top: 5px !important;
+  margin-bottom: 10px;
   font-size: 15px !important;
   margin-bottom: 0.75rem !important;
   text-align: left !important;
@@ -1062,4 +1099,22 @@ body {
 .like-icon:hover {
   opacity: 10;
   color: rgb(255, 255, 255);
+}
+
+.sss {
+  max-height: 250px !important;
+}
+
+.language {
+  margin: 25px !important;
+  top: 25px !important;
+  left: 25px !important;
+}
+.login-background {
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.form-margin {
+  margin-bottom: 100px !important;
 }

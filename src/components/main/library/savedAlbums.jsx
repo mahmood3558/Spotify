@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import Context from "../../../context/context";
 import { savedAlbums } from "../../../services/service";
 
@@ -8,6 +10,8 @@ const SavedAlbums = () => {
   const [getSavedAlbums, setSavedAlbums] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const token = async () => {
     try {
@@ -27,7 +31,7 @@ const SavedAlbums = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Saved Albums</h3>
+      <h3 className="text-header">{t("savedAlbums")}</h3>
       <div className="container">
         <div className="row">
           {getSavedAlbums.map((savedAlbum) => {
@@ -59,7 +63,9 @@ const SavedAlbums = () => {
                             )
                           }
                         >
-                          {savedAlbum.album.artists[0].name}
+                          <p className="link">
+                            {savedAlbum.album.artists[0].name}
+                          </p>
                         </NavLink>
                       </div>
                     </div>

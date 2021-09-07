@@ -1,14 +1,15 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
+
+import { useTranslation } from "react-i18next";
 
 import ProfilePreview from "../main/profile/profilePreview";
 
-const index = () => {
+const Index = () => {
+  const { t } = useTranslation();
   return (
     <div>
-      <aside
-        className="sidebar position-fixed top-0 left-0 overflow-auto h-100  nav-z-index float-left"
-        id="show-side-navigation1"
-      >
+      <aside className="sidebar position-fixed   " id="show-side-navigation1">
         <i
           className="uil-bars close-aside d-md-none d-lg-none"
           data-close="show-side-navigation1"
@@ -24,7 +25,7 @@ const index = () => {
               className="navbar-hover"
               activeClassName="active-navLink"
             >
-              Home
+              {t("home")}
             </NavLink>
           </li>
           <li className="li">
@@ -34,7 +35,7 @@ const index = () => {
               className="navbar-hover"
               activeClassName="active-navLink"
             >
-              Search
+              {t("search")}
             </NavLink>
           </li>
           <li className="li">
@@ -44,7 +45,7 @@ const index = () => {
               className="navbar-hover"
               activeClassName="active-navLink"
             >
-              Library
+              {t("library")}
             </NavLink>
           </li>
         </ul>
@@ -57,7 +58,7 @@ const index = () => {
               className="navbar-hover"
               activeClassName="active-navLink"
             >
-              Liked Songs
+              {t("likedSongs")}
             </NavLink>
           </li>
           {/* <li className="li">
@@ -77,7 +78,7 @@ const index = () => {
               className="navbar-hover"
               activeClassName="active-navLink"
             >
-              play List
+              {t("playlists")}
             </NavLink>
           </li>
         </ul>
@@ -86,4 +87,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

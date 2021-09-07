@@ -1,8 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
-import { album, albumTracks, checkLike } from "../../../services/service";
+import { album, albumTracks, checkLike, like } from "../../../services/service";
 
 const Album = () => {
   const [getAlbumTracks, setAlbumTracks] = useState([]);
@@ -11,6 +14,8 @@ const Album = () => {
   const [getimg, setimg] = useState([]);
 
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const albumToken = async () => {
     try {
@@ -69,10 +74,7 @@ const Album = () => {
       </div>
 
       <div>
-        <div className="row  ">
-          <div className="col-1">
-            <h3 className="text-header">Tracks</h3>
-          </div>
+        <div className="row  listSonge">
           <div className="col-1">
             <div className=" icon2">
               <i
@@ -80,6 +82,9 @@ const Album = () => {
                 onClick={() => context.handlePlayerId(getAlbum.uri)}
               ></i>
             </div>
+          </div>
+          <div className="col-1">
+            <h3 className="text-header">{t("tracks")}</h3>
           </div>
         </div>
 
@@ -120,11 +125,33 @@ const Album = () => {
                 <div className="col-1 ">
                   <div className="like-icon">
                     <div className=" icon4">
-                      {checkLike(albumTrack.id) ? (
+                      <i
+                        className="fa fa-heart-o"
+                        onClick={() => {
+                          like(albumTrack.id);
+                          toast.success(
+                            t("music") +
+                              " '" +
+                              albumTrack.name +
+                              "' " +
+                              t("toastAdd"),
+                            {
+                              position: "bottom-right",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: true,
+                              draggable: true,
+                              progress: undefined,
+                            }
+                          );
+                        }}
+                      ></i>
+                      {/* {checkLike(albumTrack.id) ? (
                         <i className="fa fa-heart-o "></i>
                       ) : (
                         <i className="fa fa-heart "></i>
-                      )}
+                      )} */}
                       {/* <i className="fa fa-heart "></i> */}
                       {/* <i className="fa fa-heart-o "></i> */}
                     </div>

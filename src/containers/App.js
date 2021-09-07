@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from "react-toastify";
+
 import Spotify from "../components/spotify";
 import hash from "../services/setToken/hash";
 import SetToken from "../services/setToken/setToken";
@@ -22,6 +24,7 @@ function App() {
           );
         }
       })()}
+      <ToastContainer />
     </div>
   );
 }

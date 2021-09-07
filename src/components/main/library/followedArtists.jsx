@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import Context from "../../../context/context";
 import { followedArtists } from "../../../services/service";
 
@@ -8,6 +10,8 @@ const FollowedArtists = () => {
   const [getFollowedArtists, setFollowedArtists] = React.useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const token = async () => {
     try {
@@ -27,7 +31,7 @@ const FollowedArtists = () => {
 
   return (
     <div>
-      <h3 className="text-header">Your Followed Artists</h3>
+      <h3 className="text-header"> {t("followedArtists")}</h3>
       <div className="container">
         <div className="row">
           {getFollowedArtists.map((followedArtist) => {

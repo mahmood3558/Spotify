@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import Context from "../../../context/context";
 import { categoryplaylists } from "../../../services/service";
 
@@ -8,6 +10,8 @@ const Categorie = () => {
   const [getPlaylists, setPlaylists] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const token = async () => {
     try {
@@ -27,7 +31,7 @@ const Categorie = () => {
 
   return (
     <div>
-      <h3 className="text-header">Category Playlists</h3>
+      <h3 className="text-header">{t("categoryPlaylists")}</h3>
 
       <div className="container">
         <div className="row">

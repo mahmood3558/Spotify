@@ -1,5 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { useTranslation } from "react-i18next";
 
 import { checkLike, likedSonge, deleteLike } from "../../../services/service";
 import Context from "../../../context/context";
@@ -8,6 +11,8 @@ const LikedSonge = () => {
   const [getLikedSonges, setLikedSonges] = useState([]);
   // const [getAlbum, setAlbum] = React.useState([]);
   const context = useContext(Context);
+
+  const { t } = useTranslation();
 
   const millisToMinutesAndSeconds = (millis) => {
     var minutes = Math.floor(millis / 60000);
@@ -29,29 +34,15 @@ const LikedSonge = () => {
     }
   };
 
-  const check = async (songeId) => {
-    // console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-    // console.log(songeId);
-    // console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-    // try {
-    //   const get = await checkLike(songeId);
-    //   console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-    //   console.log(get);
-    //   console.log("checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-    //   setLikedSonges(get.data.items);
-    // } catch (e) {
-    //   console.error(e);
-    // }
-  };
-
   useEffect(() => {
     token();
+    // tokenLike();
     // check();
   }, []);
 
   return (
     <div>
-      <h3 className="text-header">Your Liked Songe</h3>
+      <h3 className="text-header"> {t("likedSonge")}</h3>
 
       {getLikedSonges.map((likedSonge) => {
         // console.log("likedSonge.track.id");
@@ -106,17 +97,37 @@ const LikedSonge = () => {
                 </NavLink>
               </div>
               <div className="col-1 ">
-                <div className="like-icon">
-                  <div className=" icon4">
-                    {/* {checkLike(likedSonge.track.id) ? (
+                <div>
+                  <div className="like-icon">
+                    <div className=" icon4">
+                      {/* {checkLike(likedSonge.track.id) ? (
                       <i className="fa fa-heart "></i>
                     ) : (
                       <i className="fa fa-heart-o "></i>
                     )} */}
-                    <i
-                      className="fa fa-heart"
-                      onClick={() => deleteLike(likedSonge.track.id)}
-                    ></i>
+                      <i
+                        className="fa fa-heart"
+                        onClick={() => {
+                          deleteLike(likedSonge.track.id);
+                          toast.warn(
+                            t("music") +
+                              " '" +
+                              likedSonge.track.name +
+                              "' " +
+                              t("toastRemove"),
+                            {
+                              position: "bottom-right",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: true,
+                              draggable: true,
+                              progress: undefined,
+                            }
+                          );
+                        }}
+                      ></i>
+                    </div>
                     {/* <i className="fa fa-heart-o "></i> */}
                   </div>
                 </div>

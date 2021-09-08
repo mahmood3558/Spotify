@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
-import { artist } from "../../../services/service";
+import { artist, followArtist } from "../../../services/service";
 import Albums from "./albums";
 import TopTracks from "./topTracks";
 
@@ -44,7 +45,7 @@ const ShowArtist = () => {
         <div>
           <img
             className="rounded-pill img-fluid"
-            width="100"
+            width="110"
             src={getImg.url}
             alt=""
           />
@@ -54,6 +55,25 @@ const ShowArtist = () => {
           <p className="fs-6 mb-0">
             {getFollowers.total} {t("follower")}
           </p>
+          <div className="follow-icon">
+            <i
+              className="fa fa-user-plus"
+              onClick={() => {
+                followArtist(getArtist.id);
+                toast.success(" '" + getArtist.name + "' " + t("followed"), {
+                  position: "bottom-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              }}
+            >
+              {"   " + t("follow") + "   "}
+            </i>
+          </div>
         </div>
       </div>
       <div>

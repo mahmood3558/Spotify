@@ -74,7 +74,7 @@ const Searching = () => {
                         src={
                           track.album.images[0] != null
                             ? track.album.images[0].url
-                            : "https://download.services.iconscout.com/download?name=audio-track&download=1&url=https%3A%2F%2Fd1b1fjiwh8olf2.cloudfront.net%2Ficon%2Ffree%2Fpng-512%2F31710.png%3Ftoken%3DeyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkMWIxZmppd2g4b2xmMi5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTYzMDYyNzIwMCwicSI6bnVsbCwiaWF0IjoxNjMwMzk2NjU0fQ__.940492cb924272ebfe1ded0b81c68599f920d7c1a8548db6e51db9ed2d852ab6&width=512&height=512"
+                            : "https://icon-library.com/images/music-playlist-icon/music-playlist-icon-25.jpg"
                         }
                         alt="alternative"
                       />
@@ -258,7 +258,7 @@ const Searching = () => {
                               src={
                                 playlist.images[0] != null
                                   ? playlist.images[0].url
-                                  : "https://download.services.iconscout.com/download?name=music-album&download=1&url=https%3A%2F%2Fd1b1fjiwh8olf2.cloudfront.net%2Ficon%2Ffree%2Fpng-512%2F475066.png%3Ftoken%3DeyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkMWIxZmppd2g4b2xmMi5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTYzMDYyNzIwMCwicSI6bnVsbCwiaWF0IjoxNjMwMzk2MjIzfQ__.4e5e7d734ce9ecba9d94de0517c37de235ca452ae5395bc41d652458d1663fcd&width=512&height=512"
+                                  : "https://icon-library.com/images/music-playlist-icon/music-playlist-icon-25.jpg"
                               }
                               alt="alternative"
                             />

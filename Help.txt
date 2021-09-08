@@ -7,6 +7,8 @@ instal:
  npm i react-toastify
  npm i font-awesome 
  npm i react-bootstrap
+ npm i react-router
+ npm i react-router-dom
 
 
 

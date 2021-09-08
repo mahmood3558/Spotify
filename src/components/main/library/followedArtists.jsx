@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
-import { followedArtists } from "../../../services/service";
+import { followedArtists, unfollowArtist } from "../../../services/service";
 
 const FollowedArtists = () => {
   const [getFollowedArtists, setFollowedArtists] = React.useState([]);
@@ -37,13 +38,13 @@ const FollowedArtists = () => {
           {getFollowedArtists.map((followedArtist) => {
             return (
               <div className="col-lg-2">
-                <NavLink
-                  to="/artist"
-                  className="link"
-                  onClick={() => context.handleArtistId(followedArtist.id)}
-                >
-                  <div id="services" className="cards2">
-                    <div className="card">
+                <div id="services" className="cards2">
+                  <div className="card">
+                    <NavLink
+                      to="/artist"
+                      className="link"
+                      onClick={() => context.handleArtistId(followedArtist.id)}
+                    >
                       <div className="card-image">
                         <img
                           className="img-fluid round-img"
@@ -53,11 +54,32 @@ const FollowedArtists = () => {
                       </div>
                       <div>
                         <h3 className="">{followedArtist.name}</h3>
-                        {/* <p className="">{topTrack.artists[0].name}</p> */}
                       </div>
+                    </NavLink>
+
+                    <div>
+                      <i
+                        className="fa fa-user-times unfollow-icon"
+                        aria-hidden="true"
+                        onClick={() => {
+                          unfollowArtist(followedArtist.id);
+                          toast.warn(
+                            " '" + followedArtist.name + "' " + t("unfollow"),
+                            {
+                              position: "bottom-right",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: true,
+                              draggable: true,
+                              progress: undefined,
+                            }
+                          );
+                        }}
+                      ></i>
                     </div>
                   </div>
-                </NavLink>
+                </div>
               </div>
             );
           })}

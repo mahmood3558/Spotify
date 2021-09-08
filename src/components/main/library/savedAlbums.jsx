@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
-import { savedAlbums } from "../../../services/service";
+import { savedAlbums, removeAlbum } from "../../../services/service";
 
 const SavedAlbums = () => {
   const [getSavedAlbums, setSavedAlbums] = React.useState([]);
@@ -37,13 +38,13 @@ const SavedAlbums = () => {
           {getSavedAlbums.map((savedAlbum) => {
             return (
               <div className="col-lg-2">
-                <NavLink
-                  to="/album"
-                  className="link"
-                  onClick={() => context.handleAlbumId(savedAlbum.album.id)}
-                >
-                  <div id="services" className="cards">
-                    <div className="card">
+                <div id="services" className="cards">
+                  <div className="card">
+                    <NavLink
+                      to="/album"
+                      className="link"
+                      onClick={() => context.handleAlbumId(savedAlbum.album.id)}
+                    >
                       <div className="card-image">
                         <img
                           className="img-fluid "
@@ -54,23 +55,44 @@ const SavedAlbums = () => {
                       <div>
                         <h3 className="">{savedAlbum.album.name}</h3>
                         {/* <p className="">{savedAlbum.album.artists[0].name}</p> */}
-                        <NavLink
-                          to="/artist"
-                          className="link"
-                          onClick={() =>
-                            context.handleArtistId(
-                              savedAlbum.album.artists[0].id
-                            )
-                          }
-                        >
-                          <p className="link">
-                            {savedAlbum.album.artists[0].name}
-                          </p>
-                        </NavLink>
                       </div>
+                    </NavLink>
+                    <NavLink
+                      to="/artist"
+                      className="link"
+                      onClick={() =>
+                        context.handleArtistId(savedAlbum.album.artists[0].id)
+                      }
+                    >
+                      <p className="link">{savedAlbum.album.artists[0].name}</p>
+                    </NavLink>
+                    <div>
+                      <i
+                        className="fa fa-trash delete-albums"
+                        aria-hidden="true"
+                        onClick={() => {
+                          removeAlbum(savedAlbum.album.id);
+                          toast.warn(
+                            t("album") +
+                              " '" +
+                              savedAlbum.album.name +
+                              "' " +
+                              t("removeAlbum"),
+                            {
+                              position: "bottom-right",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: true,
+                              draggable: true,
+                              progress: undefined,
+                            }
+                          );
+                        }}
+                      ></i>
                     </div>
                   </div>
-                </NavLink>
+                </div>
               </div>
             );
           })}

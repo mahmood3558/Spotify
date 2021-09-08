@@ -120,6 +120,32 @@ export const like = (songeId) => {
   return http.put(`${config.spotify}/v1/me/tracks?ids=${songeId}`);
 };
 
+//follow Artists
+export const unfollowArtist = (artistId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.delete(
+    `${config.spotify}/v1/me/following?type=artist&ids=${artistId}`
+  );
+};
+
+export const followArtist = (artistId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.put(
+    `${config.spotify}/v1/me/following?type=artist&ids=${artistId}`
+  );
+};
+
+/////Save  Albums
+export const saveAlbum = (albumId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.put(`${config.spotify}/v1/me/albums?ids=${albumId}`);
+};
+
+export const removeAlbum = (albumId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.delete(`${config.spotify}/v1/me/albums?ids=${albumId}`);
+};
+
 /////////////////////////////////////////////////////////////////////////////
 
 export const loginUser = (user) => {

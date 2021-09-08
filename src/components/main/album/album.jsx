@@ -5,7 +5,13 @@ import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
-import { album, albumTracks, checkLike, like } from "../../../services/service";
+import {
+  album,
+  albumTracks,
+  checkLike,
+  like,
+  saveAlbum,
+} from "../../../services/service";
 
 const Album = () => {
   const [getAlbumTracks, setAlbumTracks] = useState([]);
@@ -62,7 +68,7 @@ const Album = () => {
         <div>
           <img
             className="album-img img-fluid"
-            width="100"
+            width="110"
             src={getimg.url}
             alt=""
           />
@@ -70,6 +76,28 @@ const Album = () => {
         <div className="ms-2">
           <h3 className="fs-6 mb-0">{getAlbum.name}</h3>
           <p className="fs-6 mb-0">{getArtist.name}</p>
+          <div className="follow-icon">
+            <i
+              className="fa fa-user-plus"
+              onClick={() => {
+                saveAlbum(getAlbum.id);
+                toast.success(
+                  t("album") + " '" + getAlbum.name + "' " + t("saved"),
+                  {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  }
+                );
+              }}
+            >
+              {"   " + t("save") + "   "}
+            </i>
+          </div>
         </div>
       </div>
 

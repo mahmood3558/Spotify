@@ -24,9 +24,16 @@ const fa = {
   albums: "آلبوم‌ها",
   tracks: "موزیک‌ها",
   searchPlaceholder: "نام موزیک، آلبوم، خواننده یا پلی ‌لیست",
-  toastRemove: "از لیست مورد علاقه‌ها حذف شد",
+  toastRemove: "از لیست مورد علاقه‌ها حذف شد ",
   toastAdd: "به لیست مورد علاقه اضافه شد",
   music: "موزیک",
+  artists: "هنرمند",
+  unfollow: "آنفالو شد",
+  removeAlbum: "حذف شد",
+  followed: " فالو شد ",
+  follow: " فالو  ",
+  saved: "ذخیره شده",
+  save: "ذخیره",
 };
 
 export default fa;

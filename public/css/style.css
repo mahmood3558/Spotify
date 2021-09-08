@@ -673,6 +673,14 @@ body {
   color: #ffffff !important;
   margin-top: 15px !important;
   margin-bottom: 5px !important;
+  margin-left: 25px !important;
+}
+
+.text-header2 {
+  font-size: 35px !important;
+  color: #ffffff !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
   margin-left: 20px !important;
 }
 
@@ -969,10 +977,10 @@ body {
 .icon2 {
   cursor: pointer;
   color: white !important;
-  font-size: 47px;
+  font-size: 46px;
   position: absolute;
-  top: 27%;
-  left: 19%;
+  top: 28%;
+  left: 20%;
 }
 
 .icon3 {
@@ -1004,6 +1012,7 @@ body {
   bottom: 0;
   width: 100%;
   z-index: 10;
+  right: 0px !important;
 }
 
 .main {
@@ -1049,7 +1058,8 @@ body {
 }
 
 .profile h3 {
-  margin: 13px;
+  margin: 12px;
+  margin-top: -10px;
   font-size: 18px !important;
   margin-bottom: 0.75rem;
   text-align: left;
@@ -1117,4 +1127,37 @@ body {
 
 .form-margin {
   margin-bottom: 100px !important;
+}
+
+.unfollow-icon {
+  cursor: pointer;
+  color: white !important;
+  font-size: 50px;
+  position: absolute;
+  bottom: -25%;
+  right: -5%;
+}
+
+.delete-albums {
+  cursor: pointer;
+  color: white !important;
+  font-size: 50px;
+  position: absolute;
+  bottom: -50%;
+  right: -5%;
+}
+
+.follow-icon {
+  cursor: pointer;
+  color: white !important;
+  font-size: 15px;
+  position: absolute;
+  border: 1px ridge #6b7280;
+  margin-left: 10px;
+  background-color: #282828;
+  line-height: 1.375rem;
+}
+
+.follow-icon:hover {
+  background-color: #616161;
 }

@@ -12,7 +12,7 @@ import Album from "./album/album";
 import Categorie from "./categories/categorie";
 import PlayListTracks from "./playList/playListTracks";
 
-const main = () => {
+const router = () => {
   return (
     <div>
       <Switch>
@@ -34,4 +34,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default router;

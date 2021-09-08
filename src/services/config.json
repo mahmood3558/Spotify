@@ -10,6 +10,7 @@
     "user-read-currently-playing",
     "user-read-playback-state",
     "user-follow-read",
-    "user-library-read"
+    "user-library-read",
+    "user-follow-modify"
   ]
 }

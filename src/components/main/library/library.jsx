@@ -12,18 +12,45 @@ const Library = () => {
 
   return (
     <div>
-      <h3 className="text-header">{t("library")}</h3>
-      <Tabs defaultActiveKey="LikedSonge" id="uncontrolled-tab-example">
-        <Tab eventKey="LikedSonge" title={t("likedSonge")} bsClass="col">
+      <h3 className="text-header2">{t("library")}</h3>
+      <Tabs
+        bg="light"
+        expand="lg"
+        defaultActiveKey="LikedSonge"
+        id="uncontrolled-tab-example"
+        className="tabs.active"
+        style={{ backgroundColor: "#121212", color: "#ffffff" }}
+      >
+        <Tab
+          eventKey="LikedSonge"
+          title={t("likedSonge")}
+          bsClass="col"
+          style={{ backgroundColor: "#121212", color: "#ffffff" }}
+        >
           <LikedSonge></LikedSonge>
         </Tab>
-        <Tab eventKey="Albums" title={t("albums")} bsClass="col">
+        <Tab
+          eventKey="Albums"
+          title={t("albums")}
+          bsClass="col"
+          style={{ backgroundColor: "#121212", color: "#ffffff" }}
+        >
           <SavedAlbums></SavedAlbums>
         </Tab>
-        <Tab eventKey="Playlist" title={t("playlists")} bsClass="col">
+        <Tab
+          eventKey="Playlist"
+          title={t("playlists")}
+          bsClass="col"
+          style={{ backgroundColor: "#121212", color: "#ffffff" }}
+        >
           <Playlists></Playlists>
         </Tab>
-        <Tab eventKey="Artists" title={t("artist")} bsClass="col">
+        <Tab
+          eventKey="Artists"
+          title={t("artist")}
+          bsClass="col"
+          style={{ backgroundColor: "#121212", color: "#ffffff" }}
+        >
           <FollowedArtists></FollowedArtists>
         </Tab>
       </Tabs>

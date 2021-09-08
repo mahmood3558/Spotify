@@ -1,7 +1,7 @@
 import React from "react";
 
 import i18n from "../i18n/i18n";
-import Boody from "./main/main";
+import Boody from "./main/router";
 import Navbar from "./navbar/navbar";
 import Player from "./player/player";
 

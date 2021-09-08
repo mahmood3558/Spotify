@@ -32,7 +32,7 @@ const ProfilePreview = () => {
         <div>
           <img
             className="rounded-pill img-fluid"
-            width="100"
+            width="110"
             src={getimg.url}
             alt=""
           />

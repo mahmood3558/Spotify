@@ -3,7 +3,7 @@ const en = {
   search: "Search",
   library: "Library",
   likedSongs: "Liked Music",
-  playlists: "playlists",
+  playlists: "Playlists",
   login: "Login to Spotify",
   track: "Track",
   album: "Album",

@@ -4,7 +4,11 @@ import { toast } from "react-toastify";
 
 import { useTranslation } from "react-i18next";
 
-import { playlistTracks, like } from "../../../services/service";
+import {
+  playlistTracks,
+  like,
+  followplaylist,
+} from "../../../services/service";
 import Context from "../../../context/context";
 
 const PlaylistTracks = () => {
@@ -56,6 +60,33 @@ const PlaylistTracks = () => {
           </div>
           <div className="ms-2">
             <h3 className="fs-6 mb-0">{getPlaylistName.name}</h3>
+            <br />
+            <div className="follow-icon">
+              <i
+                className="fa fa-bookmark"
+                onClick={() => {
+                  followplaylist(getPlaylistName.id);
+                  toast.success(
+                    t("playlists") +
+                      " '" +
+                      getPlaylistName.name +
+                      "' " +
+                      t("saved"),
+                    {
+                      position: "bottom-right",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    }
+                  );
+                }}
+              >
+                {"   " + t("save") + "   "}
+              </i>
+            </div>
           </div>
         </div>
       </div>

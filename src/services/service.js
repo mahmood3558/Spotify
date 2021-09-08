@@ -146,6 +146,16 @@ export const removeAlbum = (albumId) => {
   return http.delete(`${config.spotify}/v1/me/albums?ids=${albumId}`);
 };
 
+//follow Playlist
+export const unfollowplaylist = (playlistId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.delete(`${config.spotify}/v1/playlists/${playlistId}/followers`);
+};
+
+export const followplaylist = (playlistId) => {
+  // const id = "4aawyAB9vmqN3uQ7FjRGTy";
+  return http.put(`${config.spotify}/v1/playlists/${playlistId}/followers`);
+};
 /////////////////////////////////////////////////////////////////////////////
 
 export const loginUser = (user) => {

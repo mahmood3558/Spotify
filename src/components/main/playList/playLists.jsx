@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useTranslation } from "react-i18next";
 
 import Context from "../../../context/context";
-import { playlists } from "../../../services/service";
+import { playlists, unfollowplaylist } from "../../../services/service";
 
 const Playlists = () => {
   const [getplaylists, setplaylists] = useState([]);
@@ -38,13 +39,13 @@ const Playlists = () => {
           {getplaylists.map((playlist) => {
             return (
               <div className="col-lg-2">
-                <NavLink
-                  to="/playListTracks"
-                  className="link"
-                  onClick={() => context.handlePlaylistId(playlist.id)}
-                >
-                  <div id="services" className="cards">
-                    <div className="card">
+                <div id="services" className="cards">
+                  <div className="card">
+                    <NavLink
+                      to="/playListTracks"
+                      className="link"
+                      onClick={() => context.handlePlaylistId(playlist.id)}
+                    >
                       <div className="card-image">
                         <img
                           className="img-fluid"
@@ -60,9 +61,34 @@ const Playlists = () => {
                         <h3 className="">{playlist.name}</h3>
                         <p className="">by {playlist.owner.display_name}</p>
                       </div>
+                    </NavLink>
+                    <div>
+                      <i
+                        className="fa fa-trash delete-albums"
+                        aria-hidden="true"
+                        onClick={() => {
+                          unfollowplaylist(playlist.id);
+                          toast.warn(
+                            t("playlists") +
+                              " '" +
+                              playlist.name +
+                              "' " +
+                              t("removeAlbum"),
+                            {
+                              position: "bottom-right",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: true,
+                              draggable: true,
+                              progress: undefined,
+                            }
+                          );
+                        }}
+                      ></i>
                     </div>
                   </div>
-                </NavLink>
+                </div>
               </div>
             );
           })}

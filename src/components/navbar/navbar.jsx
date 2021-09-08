@@ -52,6 +52,16 @@ const Index = () => {
 
         <ul className="categories list-unstyled">
           <li className="li">
+            <i className="fa fa-music  "></i>
+            <NavLink
+              to="/playList"
+              className="navbar-hover"
+              activeClassName="active-navLink"
+            >
+              {t("playlists")}
+            </NavLink>
+          </li>
+          <li className="li">
             <i className="fa fa-heart"></i>
             <NavLink
               to="/likedSonge"
@@ -71,16 +81,6 @@ const Index = () => {
               Create Playlist
             </NavLink>
           </li> */}
-          <li className="li">
-            <i className="fa fa-music  "></i>
-            <NavLink
-              to="/playList"
-              className="navbar-hover"
-              activeClassName="active-navLink"
-            >
-              {t("playlists")}
-            </NavLink>
-          </li>
         </ul>
       </aside>
     </div>

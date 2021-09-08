@@ -78,7 +78,7 @@ const Album = () => {
           <p className="fs-6 mb-0">{getArtist.name}</p>
           <div className="follow-icon">
             <i
-              className="fa fa-user-plus"
+              className="fa fa-bookmark"
               onClick={() => {
                 saveAlbum(getAlbum.id);
                 toast.success(

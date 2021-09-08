@@ -11,6 +11,8 @@
     "user-read-playback-state",
     "user-follow-read",
     "user-library-read",
-    "user-follow-modify"
+    "user-follow-modify",
+    "playlist-modify-private",
+    "playlist-modify-public"
   ]
 }
